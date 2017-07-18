@@ -1226,7 +1226,7 @@ feature 'Proposals' do
     expect(Flag.flagged?(user, proposal)).to_not be
   end
 
-  it_behaves_like "followable", "proposal", "proposal_path", { "id": "id" }
+  it_behaves_like "followable", "proposal", "proposal_path", "id": "id"
 
   scenario 'Erased author' do
     user = create(:user)

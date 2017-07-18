@@ -14,7 +14,7 @@ class Follow < ActiveRecord::Base
 
   def self.followed?(user, followable)
     return false unless user
-    !! by_user_and_followable(user, followable).try(:first)
+    !!by_user_and_followable(user, followable).try(:first)
   end
 
 end

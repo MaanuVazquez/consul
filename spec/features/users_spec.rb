@@ -219,7 +219,7 @@ feature 'Users' do
     end
 
     scenario 'Display interests' do
-      proposal =  create(:proposal, tag_list: "Sport")
+      proposal = create(:proposal, tag_list: "Sport")
       create(:follow, :followed_proposal, followable: proposal, user: @user)
 
       login_as(@user)
