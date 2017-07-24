@@ -10,7 +10,7 @@
   <p>
     <%=  t("mailers.budget_investment_unfeasible.unfeasible_html",
            link: link_to(@investment.title, budget_investment_url(@investment.budget, @investment),
-                         style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+                         style: mail_link_style)
          ).html_safe %>
   </p>
 
@@ -21,7 +21,7 @@
   <p>
     <%=  t("mailers.budget_investment_unfeasible.new_html",
            link: link_to(t("mailers.budget_investment_unfeasible.project_links_label"), budget_investments_url(@investment.budget),
-                         style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+                         style: mail_link_style)
          ).html_safe %>
   </p>
 

@@ -11,7 +11,7 @@
     <tbody>
     <tr>
       <td style="padding-bottom: 12px; padding-top: 24px; text-align: center;">
-        <%= link_to user_url(@direct_message.sender), style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;", target: "_blank" do %>
+        <%= link_to user_url(@direct_message.sender), style: mail_link_style, target: "_blank" do %>
             <%= image_tag('icon_mailer_reply.png', style: "border: 0; display: inline-block; width: 100%; max-width: 12px; vertical-align: sub;", alt: "") %>
             <%= t('mailers.direct_message_for_receiver.reply',
                   sender: @direct_message.sender.name) %>
@@ -28,7 +28,7 @@
         <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px; margin: 0; font-style: italic; padding-bottom: 20px;">
           <%= t('mailers.direct_message_for_receiver.unsubscribe',
                 account: link_to(t('mailers.direct_message_for_receiver.unsubscribe_account'),
-                                 account_url, style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")).html_safe %>
+                                 account_url, style: mail_link_style)).html_safe %>
         </p>
       </td>
     </tr>

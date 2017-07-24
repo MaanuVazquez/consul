@@ -8,8 +8,6 @@
   <%= t("mailers.budget_investment_created.intro_html",
         author: @investment.author.name).html_safe %>
 </span></strong></p>
-  <p><%= feature?('budgets') %></p>
-  <p><%= darkness %></p>
   <p>
     <%= t("mailers.budget_investment_created.text_html",
           investment: @investment.title,
@@ -21,7 +19,7 @@
     <%= t("mailers.budget_investment_created.follow_html",
           link: link_to(t("mailers.budget_investment_created.follow_link"),
                         welcome_url,
-                        style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+                        style: mail_link_style)
           ).html_safe %>
   </p>
 

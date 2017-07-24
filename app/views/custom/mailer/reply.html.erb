@@ -11,7 +11,7 @@
   <p>
     <%= t("mailers.reply.new_reply_by_html", commenter: @reply.author.name) %> <%= link_to @commentable.title,
                                                                                            comment_url(@reply.id),
-                                                                                           style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;" %>
+                                                                                           style: mail_link_style %>
   </p>
 
   <p style="color:#999999;">
@@ -19,6 +19,6 @@
   </p>
 
   <p>
-    <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;" %>
+    <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: mail_link_style %>
   </p>
 </td>

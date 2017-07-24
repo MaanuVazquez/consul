@@ -13,7 +13,7 @@
   <p>
     <%= t("mailers.comment.new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title,
                                                                                                  commentable_url(@commentable),
-                                                                                                 style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;",
+                                                                                                 style: mail_link_style,
                                                                                                  target: "_blank"
     %>
   </p>
@@ -25,7 +25,7 @@
   <p>
     <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"),
                                                                       account_url,
-                                                                      style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;",
+                                                                      style: mail_link_style,
                                                                       target: "_blank"
     %>
   </p>

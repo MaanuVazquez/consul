@@ -3,6 +3,7 @@ class Mailer < ApplicationMailer
 
   helper :text_with_links
   helper :mailer
+  helper 'Custom::Mailer'
   helper :users
 
   def comment(comment)
