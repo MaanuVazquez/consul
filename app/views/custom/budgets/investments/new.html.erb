@@ -2,16 +2,18 @@
   <div class="small-12 medium-9 column">
 
     <div class="small-12 margin-bottom">
-      <%= link_to new_budget_investment_path(budget_id: @last_budget.id) do %>
-          <div class="backgradient position-relative mb50">
-            <div class="small-9 column v-center float-left">
-              <h2><%= t("layouts.header.banner.accepting.title") %></h2>
-              <p style="color: #333;"><%= @last_budget.description_accepting.html_safe %></p>
+      <% if @last_budget.present? %>
+        <%= link_to new_budget_investment_path(budget_id: @last_budget.id) do %>
+            <div class="backgradient position-relative mb50">
+              <div class="small-9 column v-center float-left">
+                <h2><%= t("layouts.header.banner.accepting.title") %></h2>
+                <p style="color: #333;"><%= @last_budget.description_accepting.html_safe %></p>
+              </div>
+              <div class="small-3 column v-center right">
+                <%= image_tag('header-1.png') %>
+              </div>
             </div>
-            <div class="small-3 column v-center right">
-              <%= image_tag('header-1.png') %>
-            </div>
-          </div>
+        <% end %>
       <% end %>
     </div>
 

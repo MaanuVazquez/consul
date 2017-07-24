@@ -8,8 +8,10 @@ class Moderation::BaseController < ApplicationController
 
     def set_last_budget
       @last_budget = Budget.last
-      while @last_budget.groups.empty?
-        @last_budget = Budget.where("id < ?",@last_budget.id).first
+      if @last_budget.present?
+        while @last_budget.groups.empty?
+          @last_budget = Budget.where("id < ?",@last_budget.id).first
+        end
       end
     end
 

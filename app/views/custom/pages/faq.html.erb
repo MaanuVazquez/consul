@@ -67,10 +67,10 @@
     </h3>
     <p>
       El camino correcto para hacer una propuesta es agregarla uno mismo directamente en la página dentro de la sección
-      "<%= layout_menu_link_to t("layouts.header.proposals"),
+      " <% if @last_budget.present? %><%= layout_menu_link_to t("layouts.header.proposals"),
                                budget_investments_path(@last_budget),
                                controller_name == 'investments',
-                               accesskey: "p" %>"
+                               accesskey: "p" %><% end %>"
       (para eso es necesario primero crear una cuenta haciendo clic en el enlace
       <%= link_to(t("devise_views.menu.login_items.signup"), new_user_registration_path) %>
       y, una vez creada, hacer clic en el botón "Crear propuesta" de la sección "Propuestas"). Otra manera de crear una propuesta es hacerlo en forma presencial acercándote a cualquiera de los
