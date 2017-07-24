@@ -1,0 +1,481 @@
+---
+es:
+  admin:
+    moderation:
+      index:
+        search_placeholder: Título
+  layouts:
+    header:
+      ba_elige: "¿Qué es BA Elige?"
+      open_city_title: "La Ciudad es mucho mejor cuando la construimos juntos."
+      open_city_slogan_html: "Propongamos ideas nuevas para mejorar la vida de todos los que vivimos la Ciudad y decidamos juntos cuáles de ellas se harán realidad."
+      proposal_btn: "¡Sumá tu propuesta!"
+      icon_home_slogan: "La Ciudad es mucho mejor cuando la construimos juntos."
+      no_notifications: No tenés notificaciones nuevas
+      external_link_city_participation: Participación Ciudadana
+      external_link_city_participation_url: http://bapc.buenosaires.gob.ar/
+      selecting_btn: "¡Apoyá tu propuesta!"
+      balloting_btn: "¡Votá tu propuesta!"
+      valuating_btn: "¡Ver las propuestas en evaluación!"
+      banner:
+        accepting:
+          title: "#CreáPropuestas"
+          content: "Durante el mes de abril, es tu oportunidad para proponer aquello que siempre soñaste. Compartí las ideas que te gustaría sumar a la Ciudad de Buenos Aires ¡Subí tus propuestas!"
+        selecting:
+          title: "#ApoyáPropuestas"
+          content: "Abril es el mes para respaldar las propuestas y tendrás la oportunidad de elegir hasta 10 ideas diferentes. ¡Apoyá aquellas que más te gusten!"
+        valuating:
+          title: "Análisis de propuestas"
+          content: "Durante el mes de mayo, las áreas competentes del Gobierno de la Ciudad se encuentran evaluando la viabilidad y el costo de cada proyecto para su realización."
+        balloting:
+          title: "#VotáProyectos"
+          content: "¡Durante el mes de julio es tu momento de decidir! Podés elegir qué​ proyectos el Gobierno de la Ciudad llevará a cabo. ¡Votá las iniciativas que más te gusten!"
+    footer:
+      contact_us: "Para asistencia técnica hacé click"
+      here: "aquí"
+      copyright: Ciudad de Buenos Aires %{year}
+      description: Este sitio utiliza la aplicación %{consul} que es %{open_source}.
+      faq: Asistencia técnica
+      more_info: Más información
+      open_data_text: Todos los datos del Ayuntamiento son tuyos.
+      open_data_title: Redes Sociales
+      open_source: software libre
+      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
+      participation_text: Conocé todas las acciones de <br />%{participation_title}
+      participation_title: BA Participación Ciudadana
+      participation_url: http://www.buenosaires.gob.ar/participacionciudadana
+      privacy: Políticas de privacidad
+      transparency_text: Obtén cualquier información sobre la ciudad.
+      transparency_title: Información de contacto
+      transparency_url: https://transparency.consul
+      comment_url: https://comunicacionhrl.secure.force.com/forms/FF_VFP_BAelige
+      contact_number: " (011) 5091-7340"
+      contact_mail: "baelige@buenosaires.gob.ar"
+      baelige_title: BA Elige
+  proposal_ballots:
+    description_html: "Las siguientes propuestas fueron las más apoyadas por los ciudadanos de la Ciudad de Buenos Aires."
+    date: "En breve anunciaremos la fecha de votación de estas propuestas."
+    comming_soon_title: "Votaciones"
+    comming_soon_description: "Las siguientes propuestas ciudadanas han alcanzado el número de apoyos necesarios y pasarán a votación."
+    banner:
+      title: "#VotáProyectos"
+      content: "¡Durante el mes de julio es tu momento de decidir! Podés elegir qué​ proyectos el Gobierno de la Ciudad llevará a cabo. ¡Votá las iniciativas que más te gusten!"
+  welcome:
+    header:
+      open_city_title: "La Ciudad que queremos la hacemos entre todos."
+      open_city_slogan_html: "Propongamos ideas nuevas para mejorar la vida de todos los vecinos de nuestra Ciudad y decidamos juntos cuáles de ellas se llevarán a cabo."
+      proposal_btn: "¡Sumá tu propuesta!"
+      icon_home_slogan: "La Ciudad que queremos la hacemos entre todos"
+    welcome:
+      user_permission_info: Con tu cuenta ya podés...
+    debates:
+      description: "Período de evaluación sobre la viabilidad de las propuestas."
+      title: "Análisis de propuestas"
+    decide:
+      description: "Momento de elegir los proyectos que la Ciudad llevará a cabo."
+      title: "Votación de proyectos"
+    do:
+      description: "Etapa para respaldar las propuestas creadas."
+      title: "Apoyo de propuestas"
+    proposal:
+      description: "Espacio para compartir propuestas para nuestra Ciudad."
+      title: "Creación de propuestas"
+  map:
+    proposal_for_district: "Creá una propuesta para tu comuna"
+    start_proposal: "Creá una propuesta"
+  errors:
+    messages:
+      accepted: "*(debe ser aceptado) "
+      blank: "*Campo obligatorio"
+      too_long: has superado el límite de caracteres permitidos (%{count} caracteres máximos)
+      too_short: es demasiado corto (%{count} caracteres mínimos)
+      not_found: "Información no encontrada."
+  form:
+    not_saved: 'impidieron guardar correctamente %{resource}:'
+  proposals:
+    menu_placeholder: "Buscar propuestas"
+    index:
+      start_proposal: "Creá una propuesta"
+      orders:
+        random: Todas
+      banner:
+        title: "#ApoyáPropuestas"
+        content: "Abril es el mes para respaldar las propuestas y tendrás la oportunidad de elegir hasta 10 ideas diferentes. ¡Apoyá aquellas que más te gusten!"
+      title: "Propuestas"
+    form:
+      proposal_video_url: Enlace a video externo
+      proposal_video_url_note: Podés añadir un enlace a YouTube o Vimeo
+      tags_instructions: Etiquetá esta propuesta. Podés elegir entre las categorías propuestas o introducir las que desees.
+      geozone: "Selecciona la comuna"
+      recommendations:
+        title: "Recomendaciones para crear una propuesta"
+        recommendation1: "No escribas el título de la propuesta o frases enteras en mayúsculas. En internet, eso se considera gritar, y a nadie le gusta que le griten."
+        recommendation2: "Cualquier acción ilegal o insulto será eliminado, también toda intención de sabotear los espacios de propuesta. Todo lo demás está permitido."
+        recommendation3: "No olvides que tu propuesta tiene que generar un gasto de inversión (mejoras en espacios públicos, equipamiento urbano, etc.) así como también ser de interés para la Ciudad de Buenos Aires."
+        recommendation4: "Tu propuesta no debe implicar un gasto corriente (hospitales, escuelas, comisarías, infraestructura de autopistas y ferrocarriles, mantenimiento y conservación de edificios, ampliación del horario de servicios de transporte o modificación de rutas establecidas)."
+      banner:
+        title: "#CreáPropuestas"
+        content: "Durante el mes de abril, es tu oportunidad para proponer aquello que siempre soñaste. Compartí las ideas que te gustaría sumar a la Ciudad de Buenos Aires ¡Subí tus propuestas!"
+    show:
+      edit_dossier_by_admin_link: Editar informe
+      login_to_comment: Necesitás %{signin} o %{signup} para comentar.
+  devise_views:
+    mailer:
+      confirmation_instructions:
+        confirm_link: "confirmá tu cuenta."
+        text: "Para comenzar a participar,"
+        title: ¡Bienvenido/a a BA Elige!
+        welcome: "¡Hola"
+      reset_password_instructions:
+        change_link: "nueva contraseña."
+        hello: "¡Hola"
+        ignore_text: "Si no solicitaste este cambio, ignorá este mail."
+        info_text: "Tu contraseña no cambiará hasta que no accedas al enlace y la modifiques."
+        text: "Recibimos tu solicitud de cambio de contraseña. Para hacerlo, debes ingresar una"
+        title: Cambia tu contraseña
+      unlock_instructions:
+        hello: Hola
+        info_text: Tu cuenta ha sido bloqueada debido a un excesivo número de intentos fallidos de alta.
+        instructions_text: "Para desbloquear tu cuenta accedé al enlace: "
+        title: Tu cuenta ha sido bloqueada
+        unlock_link: desbloquear mi cuenta
+    shared:
+      links:
+        new_confirmation: "¿No recibiste instrucciones para confirmar tu cuenta?"
+        new_unlock: "¿No recibiste instrucciones para desbloquear?"
+        signup: "¿No tenés una cuenta? %{signup_link}"
+    users:
+      registrations:
+        delete_form:
+          info_reason: Si querés, escribí el motivo por el que te das de baja (opcional).
+        success:
+          instructions_1_html: Por favor <b>revisá tu correo electrónico</b>, te enviamos un <b>enlace para confirmar tu cuenta</b>.
+          instructions_2_html: Una vez confirmado, podrás empezar a participar.
+          thank_you_html: Gracias por registrarte en la web.
+          title: Revisá tu correo
+  shared:
+    tags_cloud:
+      comunas: "Comunas"
+      districts_list: "Lista de comunas"
+  geozones:
+      select_one: Ninguno
+  comments:
+    form:
+      leave_comment: Dejá tu comentario
+  omniauth:
+    twitter:
+      sign_in: "Entrá con Twitter"
+    facebook:
+      sign_in: "Entrá con Facebook"
+    google_oauth2:
+      sign_in: "Entrá con Google"
+  debates:
+    show:
+      login_to_comment: Necesitás %{signin} o %{signup} para comentar.
+  users:
+    show:
+      filters:
+        budget_investments:
+          one: 1 Propuesta
+          other: "%{count} Propuestas"
+    direct_messages:
+      new:
+        authenticate: Necesitás %{signin} o %{signup}.
+  votes:
+    comment_unauthenticated: Necesitás %{signin} o %{signup} para poder votar.
+    unauthenticated: Necesitás %{signin} o %{signup} para continuar.
+    spending_proposals:
+      not_logged_in: Necesitás %{signin} o %{signup} para continuar.
+    budget_investments:
+      too_much_votes: "Sólo puedes apoyar hasta 10 propuestas."
+  devise:
+    failure:
+      unauthenticated: "Necesitás iniciar sesión o registrarte para continuar."
+    sessions:
+      signed_in: "Iniciaste sesión correctamente."
+      signed_out: "Cerraste la sesión correctamente."
+      already_signed_out: "Cerraste la sesión correctamente."
+    confirmations:
+      confirmed: "Tu cuenta ha sido confirmada."
+    registrations:
+      destroyed: "Tu cuenta se ha dado de baja exitosamente"
+    mailer:
+      confirmation_instructions:
+        subject: "Bienvenido/a a BA Elige."
+      reset_password_instructions:
+        subject: "Pedido de cambio de contraseña."
+      unlock_instructions:
+        subject: "Instrucciones de desbloqueo."
+  notifications:
+    index:
+      empty_notifications: No tenés notificaciones nuevas.
+  account:
+      show:
+        user_permission_info: Con tu cuenta ya podés...
+  verification:
+      letter:
+        new:
+          user_permission_info: Con tu cuenta ya podés...
+  pages:
+    census_terms: Para verificar la cuenta hay que tener 16 años o más y estar empadronado aportando los datos indicados anteriormente, los cuales serán contrastados. Aceptando el proceso de verificación acepta dar su consentimiento para contrastar dicha información, así como medios de contacto que figuren en dichos ficheros. Los datos aportados serán incorporados y tratados en un fichero indicado anteriormente en las condiciones de uso del portal.
+    conditions: Condiciones de uso
+    general_terms: Términos y Condiciones
+    more_information:
+      description:
+        faq: Preguntas frecuentes sobre problemas técnicos
+        how_it_works: Encontrá tu punto más cercano.
+        how_to_use: Libremente, es un software libre.
+        participation: Participación Ciudadana, Transparencia y Gobierno Abierto
+        participation_facts: Conocé qué es una inversión y qué no lo es.
+        participation_world: Informate de los sistemas de participación ciudadana que existen en el mundo.
+        proposals_info: Descubrí todo lo que podés hacer en la web.
+        signature_sheet: Hojas de firmas para recoger apoyos
+        spending_proposals_info: Enterate de las posibles propuestas.
+      how_it_works:
+        i: Participación
+        i1: Espacio de debate
+        title: Espacio de propuestas
+        text: |-
+          En este espacio, cualquier persona puede proponer una iniciativa con la intención de recaudar los suficientes apoyos como para que la idea pase a ser consultada a toda la ciudadanía con carácter vinculante.
+
+          En una segunda etapa, las propuestas son apoyadas por ciudadanos, con lo cual será la propia ciudadanía -y nadie en su nombre- la que decida cuáles son las propuestas que merecen la pena ser llevadas a cabo.
+
+          Una vez finalizada la etapa de apoyos, aquellas propuestas más populares de cada comuna serán estudiadas por un grupo de trabajo de la Ciudad y pasarán a la siguiente fase de votación en la que los vecinos decidirán cuál se llevará a cabo.
+      how_to_use:
+        text: |-
+          BA Elige usa la aplicación Consul que es software libre, con licencia AGPLv3, esto significa en palabras sencillas, que cualquiera puede libremente usar el código, copiarlo, verlo en detalle, modificarlo y redistribuir al mundo con las modificaciones que quiera(manteniendo el que otros puedan a su vez hacer lo mismo).
+
+          No solo podés usar libremente este portal, sino que desde el Ayuntamiento de Madrid van a ayudarte en todo lo posible para que lo hagas, así que si estás interesado, podés escribirles a extensión.institucional@madrid.es. Si sos programador, podés ver el código y ayudar a mejorar la aplicación Consul.
+      titles:
+        faq: Soluciones a problemas técnicos (FAQ)
+        how_it_works: "Puntos BA Elige"
+        how_to_use: Usalo en tu Ciudad o municipio
+        participation: Participación y Transparencia - Próximas novedades
+        participation_facts: "¿Qué es una inversión?"
+        participation_world: Participación Ciudadana directa en el mundo
+        proposals_info: "¿Cómo funciona la plataforma de BA Elige?"
+        signature_sheet: Hojas de firmas
+        spending_proposals_info: "¿Qué propuestas puedo hacer?"
+    opendata:
+      slogan: "Información sobre Datos abiertos."
+      title: Datos abiertos
+    privacy: Política de Privacidad
+    titles:
+      accessibility: Accesibilidad
+      conditions: Condiciones de uso
+      more_information: Más información
+      opendata: Datos abiertos
+      privacy: Política de Privacidad
+    verify:
+      code: Código que has recibido en tu carta
+      email: Email
+      info: 'Para verificar tu cuenta introduce los datos con los que te registraste:'
+      info_code: 'Ahora introduce el código que has recibido en tu carta:'
+      password: Contraseña
+      submit: Verificar mi cuenta
+      title: Verifica tu cuenta
+  budgets:
+    ballots:
+      show:
+        title: Mis votos
+        amount_spent: Coste total
+        remaining: "Te quedan <span>%{amount}</span> para invertir"
+        remove: Quitar voto
+        voted_html:
+          one: "Has votado <span>una</span> propuesta."
+          other: "Has votado <span>%{count}</span> propuestas."
+        voted_info_html: "Puedes cambiar tus votos en cualquier momento hasta el cierre de esta fase.<br> No hace falta que inviertas todo el dinero disponible."
+        zero: "No votaste ninguna propuesta."
+      reasons_for_not_balloting:
+        not_logged_in: Necesitas %{signin} o %{signup} para continuar.
+        not_verified: Las propuestas sólo pueden ser apoyadas por usuarios verificados, %{verify_account}.
+        organization: Las organizaciones no pueden votar.
+        not_selected: No se pueden votar propuestas inviables.
+        not_enough_money: No hay fondos suficientes.
+        no_ballots_allowed: El periodo de votación está cerrado.
+        different_heading_assigned: Ya votaste en una sección distinta del presupuesto.
+    groups:
+      show:
+        title: Selecciona una opción
+        unfeasible_title: Propuestas inviables
+        unfeasible: Ver propuestas inviables
+    phase:
+      accepting: Aceptando propuestas
+      reviewing: Revisando propuestas
+      selecting: Selección de propuestas
+      valuating: Evaluación de propuestas
+      balloting: Votación de propuestas
+      reviewing_ballots: Contando resultados
+      finished: Presupuesto terminado
+    index:
+      title: Presupuestos participativos
+    investments:
+      form:
+        tags_instructions: "Etiqueta esta propuesta. Puedes elegir entre las categorías propuestas o introducir las que desees"
+        tags_label: Temas
+        tag_category_label: "Categorías"
+        tags_placeholder: "Escribe las etiquetas que desees separadas por una coma (',')"
+        create_budget: "Crear propuesta"
+      index:
+        title: Presupuestos participativos
+        unfeasible: Propuestas no viables
+        unfeasible_text: Las propuestas presentadas deben cumplir una serie de criterios (legalidad, concreción, ser competencia del Ayuntamiento, no superar el tope del presupuesto; %{definitions}) para ser declaradas viables y llegar hasta la fase de votación final. Todas las propuestas que no cumplen estos criterios son marcadas como inviables y publicadas en la siguiente lista, junto con su informe de inviabilidad.
+        unfeasible_text_definitions: ver definiciones aquí
+        by_heading: "Propuestas con ámbito: %{heading}"
+        search_form:
+          button: Buscar
+          placeholder: Buscar propuestas...
+          title: Buscar
+        search_results:
+          one: " que contiene '%{search_term}'"
+          other: " que contienen '%{search_term}'"
+        sidebar:
+          my_ballot: Mis votos
+          voted_html:
+            one: "<strong>Has votado una propuesta por un valor de %{amount_spent}</strong>"
+            other: "<strong>Has votado %{count} propuestas por un valor de %{amount_spent}</strong>"
+          voted_info: Puedes cambiar tus votos en cualquier momento hasta el cierre de esta fase. No hace falta que gastes todo el dinero disponible.
+          zero: "Todavía no has votado ninguna propuesta."
+          verified_only: "Para crear una nueva propuesta %{verify}."
+          verify_account: "verifica tu cuenta"
+          create: "Creá una propuesta"
+          not_logged_in: "Para crear una nueva propuesta debes %{sign_in} o %{sign_up}."
+          sign_in: "iniciar sesión"
+          sign_up: "registrarte"
+          by_feasibility: Por viabilidad
+          feasible: Ver los proyectos viables
+          unfeasible: Ver los proyectos inviables
+        orders:
+          random: Todas
+          confidence_score: "Más apoyadas"
+          price: Por coste
+          most_commented: Más comentadas
+          created_at: Nuevas
+      show:
+        author_deleted: Usuario eliminado
+        price_explanation: Informe de coste
+        unfeasibility_explanation: Informe de inviabilidad
+        code_html: 'Código de propuesta: <strong>%{code}</strong>'
+        location_html: 'Ubicación: <strong>%{location}</strong>'
+        organization_name_html: 'Organización: <strong>%{name}</strong>'
+        share: Compartir
+        title: Propuesta
+        supports: Apoyos
+        votes: Votos
+      wrong_price_format: Solo podés incluir caracteres numéricos
+      investment:
+        title: Propuesta
+        add: Añadir
+        already_added: "Ya añadiste esta propuesta"
+        already_supported: Ya apoyaste esta propuesta. ¡Compartila!
+        support_title: Apoyar esta propuesta
+        confirm_group: "Sólo puedes apoyar propuestas en un distrito. Si sigues adelante no podrás cambiar esta decisión. ¿Estás seguro?"
+        supports:
+          one: 1 apoyo
+          other: "%{count} apoyos"
+          zero: Sin apoyos
+        give_support: Apoyar
+      header:
+        check_ballot: Revisar mis votos
+        different_heading_assigned_html: "Ya apoyaste propuestas de otra sección del presupuesto: %{heading_link}"
+    progress_bar:
+      available: "Disponible: "
+    show:
+      group: Grupo
+      phase: Fase actual
+      unfeasible_title: Propuestas inviables
+      unfeasible: Ver las propuestas inviables
+  management:
+    document_verifications:
+      already_verified: Esta cuenta de usuario ya está verificada.
+      has_no_account_html: 'Para crear un usuario vaya al menú <strong>Crear usuario</strong> o <strong>Invitaciones para usuarios</strong>'
+      link: Consul
+      in_census_has_following_permissions: 'Este usuario puede participar en el Portal de Gobierno Abierto con las siguientes posibilidades:'
+      not_in_census: No existe un usuario con este email.
+      not_in_census_info: 'Las personas no empadronadas pueden participar en el Portal de Gobierno Abierto con las siguientes posibilidades:'
+      please_check_account_data: Compruebe que los datos anteriores son correctos para proceder a verificar la cuenta completamente.
+      title: Gestión de usuarios
+      under_age: No tienes edad suficiente para verificar tu cuenta.
+      verify: Verificar usuario
+  recaptcha:
+    errors:
+      verification_failed: 'Captcha inválido.'
+  mailers:
+    no_reply: "Este mensaje se ha enviado desde una dirección de correo electrónico que no admite respuestas."
+    comment:
+      hi: "¡Hola"
+      new_comment_by_html: "Queremos contarte que hay un nuevo comentario de <b>%{commenter}</b> en"
+      subject: "¡Recibiste un nuevo comentario!"
+      title: Nuevo comentario
+    config:
+      manage_email_subscriptions: "Podés dejar de recibir estos mails cambiando tu configuración en"
+    email_verification:
+      click_here_to_verify: en este enlace
+      instructions_2_html: Este email es para verificar tu cuenta con <b>%{document_type} %{document_number}</b>. Si esos no son tus datos, por favor no pulses el enlace anterior e ignora este email.
+      instructions_html: Para terminar de verificar tu cuenta de usuario en el Portal de BA Elige, necesitamos que pulses %{verification_link}.
+      subject: Verifica tu email
+      thanks: Muchas gracias.
+      title: Verifica tu cuenta con el siguiente enlace
+    reply:
+      hi: Hola
+      new_reply_by_html: Hay una nueva respuesta de <b>%{commenter}</b> a tu comentario en
+      subject: "Alguien respondió a tu comentario"
+      title: Nueva respuesta a tu comentario
+    unfeasible_spending_proposal:
+      hi: "Estimado usuario,"
+      new_html: "Por todo ello, te invitamos a que elabores una <strong>nueva propuesta</strong> que se ajuste a las condiciones de este proceso. Esto lo puedes hacer en este enlace: %{url}."
+      new_href: "nueva propuesta de inversión"
+      reconsider_html: "Si consideras que la propuesta rechazada cumple los requisitos para mantenerla como propuesta de inversión, podrás comunicarlo, en el plazo de 48 horas, al correo example@consul.es, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu propuesta."
+      sincerely: "Atentamente"
+      signatory: "DIRECCIÓN GENERAL DE PARTICIPACIÓN CIUDADANA"
+      sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
+      subject: "Tu propuesta de inversión '%{code}' ha sido marcada como inviable"
+      unfeasible_html: "Desde el Ayuntamiento queremos agradecer tu participación en los <strong>Presupuestos Participativos</strong>. Lamentamos informarte de que tu propuesta <strong>'%{title}'</strong> quedará excluida de este proceso participativo por el siguiente motivo:"
+    proposal_notification_digest:
+      info: "A continuación te mostramos las nuevas notificaciones que han publicado los autores de las propuestas que estás apoyando en %{org_name}."
+      title: "Notificaciones de propuestas en %{org_name}"
+      share: Compartir propuesta
+      comment: Comentar propuesta
+      unsubscribe: "Si no quieres recibir notificaciones de propuestas, puedes entrar en %{account} y desmarcar la opción 'Recibir resumen de notificaciones sobre propuestas'."
+      unsubscribe_account: Mi cuenta
+    direct_message_for_receiver:
+      subject: "Recibiste un nuevo mensaje privado"
+      reply: Responder a %{sender}
+      unsubscribe: "Si no querés recibir mensajes privados, puedes entrar en %{account} y desmarcar la opción 'Recibir emails con mensajes privados'."
+      unsubscribe_account: Mi cuenta
+    direct_message_for_sender:
+      subject: "Enviaste un nuevo mensaje privado"
+      title_html: "Enviaste un nuevo mensaje privado a <strong>%{receiver}</strong> con el siguiente contenido:"
+    user_invite:
+      ignore: "Si no pediste esta invitación no te preocupes, puedes ignorar este correo."
+      text: "Te invitamos a registrarte en BA Elige y subir tus propuestas para mejorar la Ciudad."
+      thanks: "Esperamos tu participación."
+      title: "¡Bienvenido/a a BA Elige!"
+      button: "Completar el registro"
+      subject: "¡Sumate a BA Elige!"
+    budget_investment_created:
+      subject: "¡Creaste una propuesta!"
+      title: "¡Gracias por crear tu propuesta!"
+      intro_html: "¡Hola <strong>%{author}</strong>!"
+      text_html: "Queremos agradecerte por tu participación y contarte que tu propuesta <strong>%{investment}</strong> ya es parte de <b>BA Elige</b>."
+      follow_html: "Te estaremos contando cómo avanza tu propuesta en el proceso y también puedes seguirlo desde la página <strong>%{link}</strong>."
+      follow_link: "BA Elige"
+      sincerely: "Atentamente,"
+      signatory: "DIRECCIÓN GENERAL DE PARTICIPACIÓN CIUDADANA"
+      share: "Comparte tu proyecto"
+    budget_investment_unfeasible:
+      hi: "¡Hola <strong>%{author}</strong>!"
+      new_html: "Si bien tu propuesta no pasará a la siguiente etapa, vas a poder seguir participando votando los %{link} que más te gusten a partir del 21 de agosto."
+      new_href: "nueva propuesta de inversión"
+      reconsider_html: "Si consideras que el proyecto rechazado cumple los requisitos para mantenerlo como proyecto de gasto, podrás comunicarlo, en el plazo de 48 horas, al correo example@consul.es, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu proyecto."
+      sincerely: "Atentamente"
+      signatory: "DIRECCIÓN GENERAL DE PARTICIPACIÓN CIUDADANA"
+      sorry: "Sentimos las molestias ocasionadas y volvemos a darte las gracias por tu inestimable participación."
+      subject: "Tu propuesta de inversión '%{code}' ha sido marcada como inviable"
+      project_links_label: "proyectos"
+      unfeasible_html: "Queremos agradecerte por tu participación y contarte que tu propuesta en BA Elige %{link} no es viable, debido al siguiente motivo:"
+  moderation:
+    proposals:
+      index:
+        filters:
+          without_ignored_flag: "Todas (no revisadas)"

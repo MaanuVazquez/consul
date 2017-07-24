@@ -1,0 +1,93 @@
+<% provide :title do %>¿Qué es BA Elige?<% end %>
+
+<div class="row margin-top">
+
+  <div class="small-12 medium-9 column">
+    <h1>¿Qué es BA Elige?</h1>
+
+    <p><b>BA Elige</b> es un proyecto que propone una evolución de la participación ciudadana, para que a través de diferentes
+      etapas, entre todos propongamos y elijamos ideas que ayuden a mejorar los barrios, las comunas y la Ciudad de
+      Buenos Aires. Es un espacio abierto y accesible en donde todos podemos hacer de nuestras ideas una realidad.</p>
+
+    <p>Ahora cualquier persona va a tener la posibilidad de hacer propuestas y apoyar aquellas que pensaron otros, y si
+      tenés domicilio en la Ciudad de Buenos Aires, también vas a poder votar esas iniciativas para que juntos
+      construyamos la Ciudad que soñamos, ya que asignamos 500 millones de pesos, parte del total del presupuesto de
+      inversión de la Ciudad del 2018, para que se puedan llevar a cabo.</p>
+
+    <p>El Gobierno de la Ciudad de Buenos Aires asume la decisión como vinculante y aquellos proyectos que resulten
+      ganadores, serán incluidos en el presupuesto que se ejecutará a partir del 1º de enero de 2018.</p>
+
+    <p>El presupuesto destinado se dividirá entre las 15 comunas que conforman a la Ciudad de Buenos Aires. La
+      distribución de los presupuestos por comuna se realizó en forma proporcional a su población e inversamente
+      proporcional a su renta per cápita. Para ver la distribución entre las diferentes comunas entrá
+      <%= link_to "acá", budget_group_path(@last_budget, @first_group) %>.
+    </p>
+
+    <p>La fuente para calcular el ingreso promedio por habitante fue la Encuesta Anual a Hogares del año 2014 que
+      realizó la  Dirección General de Estadística y Censos del Gobierno de la Ciudad de Buenos Aires, y el cálculo de
+      habitantes por comuna se basó en el Censo del año 2010 que llevó a cabo el Instituto Nacional de Estadísticas
+      y Censos.</p>
+
+    <p>Para ver la distribución entre las diferentes comunas entrá
+      <%= link_to "acá", budget_group_path(@last_budget, @first_group) %>.
+    </p>
+
+    <br><br>
+    <h3>Cómo funciona BA Elige - Explicación detallada del proceso</h3>
+    <br>
+
+    <h4>1. Registro en el sitio.</h4>
+    <p>Para ingresar a la plataforma y empezar a ser parte de BA Elige, podés registrarte a través de tu perfil de
+      Facebook o de Twitter o creando una cuenta de correo electrónico con una contraseña. Una vez que lo hagas,
+      recibirás un correo electrónico para confirmar tus datos.</p>
+
+    <h4>2. Subí tu propuesta: abril 2017.</h4>
+    <p>Podés subir una propuesta cualquiera sea tu edad y nacionalidad, y sin que sea necesario que tengas domicilio
+      en la Ciudad de Buenos Aires. Solo tenés que hacer clic en el botón
+      “<%= link_to t("budgets.investments.index.sidebar.create")%>”
+      y completar los campos requeridos. Escribila con tus palabras y tené en cuenta que cuanto más detallada sea,
+      más posibilidades tendrás de sumar apoyos, incluso podés agregar links con material adicional. No hay límite en
+      la cantidad de propuestas a subir por persona, sin embargo cada propuesta deberá referirse a una sola comuna.
+    </p>
+
+    <h4>3. Apoyo de propuestas: mayo 2017.</h4>
+    <p>Para apoyar las propuestas publicadas en BA Elige tenés que hacer clic en el botón “Apoyar” que está ubicado
+      en cada una de ellas. Podés apoyar cada propuesta una sola vez y hasta un máximo de diez. La cantidad de apoyos
+      que estas reciban determina el orden en el que serán analizadas en el siguiente paso.</p>
+
+    <h4>4. Análisis de propuestas: junio/julio 2017.</h4>
+    <p>
+      Las propuestas de cada comuna serán ordenadas,según la categoría a la que corresponda, de mayor a menor, dependiendo del número de apoyos que hayan recibido en la etapa anterior. Las encargadas de realizar esta tarea serán las áreas del GCBA competentes a la temática de cada propuesta. Entre junio y julio los equipos mencionados tendrán tiempo para revisar la mayor cantidad de propuestas posibles, respetando el orden previamente establecido, y no será obligatorio que analicen la totalidad de las mismas. En esta instancia de evaluación se definirá si las propuestas cumplen con los requisitos de validez, viabilidad y legalidad, y se efectuará un presupuesto estimado del costo económico que representará llevarlas a cabo.
+    </p>
+    <p>
+      Serán excluidas del resto del proceso aquellas propuestas que no sean de inversión, cuyos costos superen el presupuesto previsto, las que no entren en el ámbito de competencia del GCBA, las que sean contrarias a la normativa de aplicación, las que impliquen un gasto corriente o de personal o las que sean inviables técnicamente.
+    </p>
+    <p>
+      Al finalizar este período se publicarán todas las propuestas, tanto aprobadas como rechazadas, con sus informes y valoraciones correspondientes. Las propuestas aprobadas se convertirán en proyectos y pasarán a la siguiente etapa de votación.
+    </p>
+
+    <h4>5. Votación: del 21 de agosto al 17 de septiembre.</h4>
+    <p>Podrán participar en esta etapa todos los vecinos mayores de 16 años, que en su DNI figure un domicilio que
+      corresponda a la Ciudad de Buenos Aires. Cada participante podrá votar únicamente por una comuna a su elección
+      sin necesidad de que corresponda a la de su domicilio.</p>
+    <p>Una vez seleccionada la comuna se podrá visualizar en la barra ubicada en la parte superior de la pantalla el
+      presupuesto destinado a la misma, el cual se irá reduciendo a medida que se vayan votando las propuestas.</p>
+    <p>Podrás votar todos los proyectos que quieras, mientras haya presupuesto disponible (aunque no hará falta usarlo
+      todo, pudiendo votar incluso un único proyecto).</p>
+    <p>Los proyectos que votaste, los vas a poder revisar ingresando en “Mis votos”, los mismos se podrán cancelar en
+      cualquier momento hasta el final de la fase, incluso se podrán eliminar todos los proyectos seleccionados y
+      comenzar a votar en otra comuna. No hace falta confirmar la votación en ningún momento</p>
+    <p>El resultado definitivo del proceso se tendrá una vez finalizada la etapa de votación. Los proyectos serán
+      ordenados por comunas, según la cantidad de votos que tuvieron (de mayor a menor) teniendo en cuenta que cada
+      uno no supere el presupuesto destinado a cada una de ellas. Si supera ese límite, se ignorará y se pasará al
+      siguiente hasta agotar el dinero asignado.</p>
+    <br><br>
+    <p><b><i>Participación Ciudadana es el área del Gobierno de la Ciudad de Buenos Aires (GCBA) que coordinará todo
+      el proceso, siendo la garante de su neutralidad y efectividad.</i></b></p>
+  </div>
+
+  <div class="small-12 medium-3 column">
+    <%= render '/shared/print' %>
+  </div>
+
+</div>

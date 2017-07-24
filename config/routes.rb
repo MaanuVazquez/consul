@@ -9,7 +9,8 @@ Rails.application.routes.draw do
                        registrations: 'users/registrations',
                        sessions: 'users/sessions',
                        confirmations: 'users/confirmations',
-                       omniauth_callbacks: 'users/omniauth_callbacks'
+                       omniauth_callbacks: 'users/omniauth_callbacks',
+                       passwords: 'users/passwords' #added this for Google reCaptcha verification
                      }
   devise_for :organizations, class_name: 'User',
              controllers: {
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/welcome', to: 'welcome#welcome'
   get '/cuentasegura', to: 'welcome#verification', as: :cuentasegura
+  get '/welcome/countdown', to: 'welcome#countdown'
 
   resources :debates do
     member do
@@ -77,7 +79,7 @@ Rails.application.routes.draw do
 
   resources :budgets, only: [:show, :index] do
     resources :groups, controller: "budgets/groups", only: [:show]
-    resources :investments, controller: "budgets/investments", only: [:index, :new, :create, :show, :destroy] do
+    resources :investments, controller: "budgets/investments", only: [:index, :new, :create, :show, :destroy, :edit, :update] do
       member     { post :vote }
       collection { get :suggest }
     end
@@ -145,6 +147,7 @@ Rails.application.routes.draw do
   end
 
   resources :proposal_notifications, only: [:new, :create, :show]
+  resources :budget_investment_notifications, only: [:new, :create, :show]
 
   resource :verification, controller: "verification", only: [:show]
 
@@ -181,6 +184,13 @@ Rails.application.routes.draw do
     end
 
     resources :proposals, only: :index do
+      member do
+        put :restore
+        put :confirm_hide
+      end
+    end
+
+    resources :investments, only: :index do
       member do
         put :restore
         put :confirm_hide
@@ -288,6 +298,7 @@ Rails.application.routes.draw do
     resource :stats, only: :show do
       get :proposal_notifications, on: :collection
       get :direct_messages, on: :collection
+      get :csv_investments, on: :collection
     end
 
     namespace :legislation do
@@ -330,9 +341,15 @@ Rails.application.routes.draw do
       put :moderate, on: :collection
     end
 
+    resources :investments, only: :index do
+      put :hide, on: :member
+      put :moderate, on: :collection
+    end
+
     resources :comments, only: :index do
       put :hide, on: :member
       put :moderate, on: :collection
+      get :search, on: :collection
     end
   end
 

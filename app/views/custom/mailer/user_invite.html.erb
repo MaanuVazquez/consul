@@ -1,0 +1,26 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+
+  <h1 style="color:rgba(0,0,0,.7); font-family:Arial; font-weight:bold; font-size:28px;">
+    <%= t('mailers.user_invite.title')%>
+  </h1>
+
+  <p>
+    <%= t('mailers.user_invite.text') %>
+  </p>
+
+  <p><%= t('mailers.user_invite.thanks') %></p>
+
+  <p>
+    <%= link_to t('mailers.user_invite.button'),
+                new_user_registration_url,
+                style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;",
+                target: "_blank"
+    %>
+  </p>
+
+  <p>
+    <%= t('mailers.user_invite.ignore') %>
+  </p>
+
+</td>
+

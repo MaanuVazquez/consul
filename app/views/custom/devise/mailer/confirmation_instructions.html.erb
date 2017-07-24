@@ -1,0 +1,22 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+
+  <h1 style="color:rgba(0,0,0,.7); font-family:Arial; font-weight:bold; font-size:28px;">
+    <%= t("devise_views.mailer.confirmation_instructions.title") %>
+  </h1>
+
+  <p><strong><span style="align:justify; color:#636261; font-family:Arial; font-size:16px;">
+    <%= t("devise_views.mailer.confirmation_instructions.welcome") %> <%= @email %>!
+  </span></strong></p>
+
+  <p>
+    <%= t("devise_views.mailer.confirmation_instructions.text") %> <%= link_to t("devise_views.mailer.confirmation_instructions.confirm_link"),
+                                             confirmation_url(@resource, confirmation_token: @token),
+                                             style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;",
+                                             target: "_blank"
+      %>
+    <br>
+  </p>
+
+  <p>&#161;Ahora ya estás listo para ser parte de <strong>BA Elige</strong>!</p>
+
+</td>

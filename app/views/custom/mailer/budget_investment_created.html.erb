@@ -1,0 +1,28 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+
+  <h1 style="color:rgba(0,0,0,.7); font-family:Arial; font-weight:bold; font-size:28px;">
+    <%= t("mailers.budget_investment_created.title") %>
+  </h1>
+
+  <p><strong><span style="align:justify; color:#636261; font-family:Arial; font-size:16px;">
+  <%= t("mailers.budget_investment_created.intro_html",
+        author: @investment.author.name).html_safe %>
+</span></strong></p>
+  <p><%= feature?('budgets') %></p>
+  <p><%= darkness %></p>
+  <p>
+    <%= t("mailers.budget_investment_created.text_html",
+          investment: @investment.title,
+          budget: @investment.budget.name).html_safe %>
+    <br>
+  </p>
+
+  <p>
+    <%= t("mailers.budget_investment_created.follow_html",
+          link: link_to(t("mailers.budget_investment_created.follow_link"),
+                        welcome_url,
+                        style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+          ).html_safe %>
+  </p>
+
+</td>

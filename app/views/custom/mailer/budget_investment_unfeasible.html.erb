@@ -1,0 +1,28 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+
+  <p>
+    <strong><span style="align:justify; color:#636261; font-family:Arial; font-size:16px;">
+    <%= t("mailers.budget_investment_unfeasible.hi",
+          author: @investment.author.name).html_safe %>
+    </span></strong>
+  </p>
+
+  <p>
+    <%=  t("mailers.budget_investment_unfeasible.unfeasible_html",
+           link: link_to(@investment.title, budget_investment_url(@investment.budget, @investment),
+                         style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+         ).html_safe %>
+  </p>
+
+  <p>
+    <%= @investment.unfeasibility_explanation %>
+  </p>
+
+  <p>
+    <%=  t("mailers.budget_investment_unfeasible.new_html",
+           link: link_to(t("mailers.budget_investment_unfeasible.project_links_label"), budget_investments_url(@investment.budget),
+                         style:"font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;")
+         ).html_safe %>
+  </p>
+
+</td>

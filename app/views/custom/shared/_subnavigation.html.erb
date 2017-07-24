@@ -1,0 +1,66 @@
+<div class="small-12 medium-9 column">
+  <ul>
+    <% if feature?(:debates) %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.debates"),
+                                debates_path,
+                                controller_name == 'debates',
+                                accesskey: "d" %>
+      </li>
+    <% end %>
+    <li style="display:none;">
+      <%= layout_menu_link_to t("layouts.header.proposals"),
+                              proposals_path,
+                              controller_name == 'proposals',
+                              accesskey: "n" %>
+    </li>
+    <li>
+      <%= layout_menu_link_to t("layouts.header.proposals"),
+                                budget_investments_path(@last_budget),
+                                controller_name == 'investments',
+                                accesskey: "p" %>
+    </li>
+    <li>
+      <%#= layout_menu_link_to t("layouts.header.proposal_ballot"),
+                                proposal_ballots_path,
+                                controller_name == 'proposal_ballots',
+                                accesskey: "v",
+                              :"data-no-turbolink" => true %>
+    </li>
+    <li class="fs-12">
+      <%= layout_menu_link_to t("layouts.header.ba_elige"),
+                              page_path('ba_elige'),
+                              controller_name == 'pages#ba_elige',
+                              accesskey: "i" %>
+    </li>
+    <li class="fs-12">
+      <%= layout_menu_link_to t("layouts.header.more_information"),
+                              page_path('more_information'),
+                              controller_name == 'pages#more_information',
+                              accesskey: "i" %>
+    </li>
+    <li class="fs-12">
+      <%= layout_menu_link_to "Mapa",
+                              budget_group_path(@last_budget, @first_group),
+                              controller_name == 'groups',
+                              accesskey: "m",
+                              :"data-no-turbolink" => true %>
+    </li>
+    <% if feature?(:spending_proposals) %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.spending_proposals"),
+                                  spending_proposals_path,
+                                  controller_name == 'spending_proposals',
+                                  accesskey: "s" %>
+      </li>
+    <% end %>
+    <% if feature?(:budgets) %>
+      <li style="display:none;">
+        <%= layout_menu_link_to t("layouts.header.budgets"),
+                                  budgets_path,
+                                  controller_name == "budgets" || controller_name == "investments",
+                                  accesskey: "b" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

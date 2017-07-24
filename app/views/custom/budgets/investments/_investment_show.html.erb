@@ -1,0 +1,171 @@
+<% provide :social_media_meta_tags do %>
+<%= render "shared/social_media_meta_tags",
+    social_url: budget_investment_url(budget_id: investment.budget_id, id: investment.id),
+    social_title: investment.title,
+    social_description: investment.summary %>
+<% end %>
+<% flash.each do |flash_key, flash_message| %>
+    <% if flash_message ==  t('flash.actions.create.proposal')%>
+        <script>
+            fbq('track', 'CompleteRegistration', {
+                value: 25.00,
+                currency: 'USD'
+            });
+        </script>
+        <% break %>
+    <% end %>
+<% end %>
+<section class="budget-investment-show" id="<%= dom_id(investment) %>">
+
+  <div class="row">
+    <div class="small-12 medium-9 column">
+      <%= back_link_to budget_investments_path(investment.budget) %>
+
+      <h1><%= investment.title %></h1>
+
+      <div class="budget-investment-info">
+        <%= render '/shared/author_info', resource: investment %>
+
+        <span class="bullet">&nbsp;&bull;&nbsp;</span>
+        <%= l investment.created_at.to_date %>
+        <span class="bullet">&nbsp;&bull;&nbsp;</span>
+        <%= investment.heading.name %>
+      </div>
+
+      <br>
+      <p id="investment_code">
+        <%= t("budgets.investments.show.code_html", code: investment.id) %>
+      </p>
+
+      <blockquote><%= investment.summary %></blockquote>
+
+      <% if investment.location.present? %>
+        <p>
+          <%= t("budgets.investments.show.location_html", location: investment.location) %>
+        </p>
+      <% end %>
+
+      <% if investment.organization_name.present? %>
+        <p>
+          <%= t("budgets.investments.show.organization_name_html", name: investment.organization_name) %>
+        </p>
+      <% end %>
+
+      <%= render 'shared/tags', taggable: investment %>
+
+      <%= safe_html_with_links investment.description.html_safe %>
+
+      <% if investment.external_url.present? %>
+        <div class="document-link">
+          <%= text_with_links investment.external_url %>
+        </div>
+      <% end %>
+
+      <% if investment.video_url.present? %>
+          <div class="video-link">
+            <%= text_with_links investment.video_url %>
+          </div>
+      <% end %>
+
+      <% if investment.video_url.present? %>
+          <div class="small-12 medium-7 small-centered">
+            <div class="flex-video">
+              <div id="js-embedded-video" data-video-code="<%= embedded_investment_video_code %>"></div>
+            </div>
+          </div>
+      <% end %>
+
+      <% if investment.unfeasible? && investment.unfeasibility_explanation.present? %>
+        <h2><%= t('budgets.investments.show.unfeasibility_explanation') %></h2>
+        <p><%= investment.unfeasibility_explanation %></p>
+      <% end %>
+
+      <% if investment.feasible? && investment.price_explanation.present? %>
+        <h2><%= t('budgets.investments.show.price_explanation') %></h2>
+        <p><%= investment.price_explanation %></p>
+      <% end %>
+    </div>
+
+    <aside class="small-12 medium-3 column">
+
+
+      <% if current_user && investment.editable_by?(current_user) %>
+          <br>
+          <%= link_to edit_budget_investment_path(investment.budget, investment), class: 'edit-proposal button expanded' do %>
+              <%= t("proposals.show.edit_proposal_link") %>
+          <% end %>
+      <% end %>
+      <% if current_user && current_user.administrator? %>
+          <br>
+          <%= link_to edit_admin_budget_budget_investment_path(investment.budget, investment), class: 'edit-proposal button expanded', target: "_blank" do %>
+              <%= t("proposals.show.edit_proposal_link") %>
+          <% end %>
+      <% end %>
+      <% if current_user &&
+          (current_user.administrator? || (current_user.valuator? && investment.valuable_by?(current_user))) %>
+          <br>
+          <%= link_to edit_valuation_budget_budget_investment_path(investment.budget, investment), class: 'edit-proposal button expanded', target: "_blank" do %>
+              <%= t("proposals.show.edit_dossier_by_admin_link") %>
+          <% end %>
+      <% end %>
+
+
+      <% if investment.should_show_aside? %>
+        <% if investment.should_show_votes? %>
+          <div class="sidebar-divider"></div>
+          <h2><%= t("budgets.investments.show.supports") %></h2>
+          <div class="text-center">
+            <div id="<%= dom_id(investment) %>_votes">
+              <%= render partial: '/budgets/investments/votes', locals: {
+                investment: investment,
+                investment_votes: investment_votes,
+                vote_url: vote_budget_investment_path(investment.budget, investment, value: 'yes')
+              } %>
+            </div>
+          </div>
+        <% elsif investment.should_show_vote_count? %>
+          <div class="sidebar-divider"></div>
+          <h2><%= t("budgets.investments.show.supports") %></h2>
+          <div class="text-center">
+            <span class="total-supports">
+                <%= t("budgets.investments.investment.supports",
+                    count: investment.total_votes) %>
+            </span>
+          </div>
+        <% elsif investment.should_show_ballots? %>
+          <div class="sidebar-divider"></div>
+          <h2><%= t("budgets.investments.show.votes") %></h2>
+          <div class="text-center">
+            <div id="<%= dom_id(investment) %>_ballot">
+              <%= render partial: 'ballot', locals: {
+                investment: investment,
+                investment_ids: investment_ids,
+                ballot: ballot,
+              } %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="float-right">
+          <span class="label-budget-investment float-left">
+            <%= t("budgets.investments.show.title") %>
+          </span>
+          <span class="ml5 float-left"><%= image_tag('lamparita.png', class: 'text-bottom ml20', size: '18x18') %></span>
+        </div>
+        <br>
+      <% end %>
+
+      <div id="social-share" class="sidebar-divider"></div>
+      <h2><%= t("budgets.investments.show.share") %></h2>
+      <div class="social-share-full">
+        <%= social_share_button_tag("#{investment.title} #{setting['twitter_hashtag']}") %>
+        <% if browser.device.mobile? %>
+          <a href="whatsapp://send?text=<%= investment.title %> <%= budget_investment_url(budget_id: investment.budget_id, id: investment.id) %>" data-action="share/whatsapp/share">
+            <span class="icon-whatsapp whatsapp"></span>
+          </a>
+        <% end %>
+      </div>
+     </aside>
+  </div>
+
+</section>

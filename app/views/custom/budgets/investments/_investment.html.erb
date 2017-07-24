@@ -1,0 +1,99 @@
+<div id="<%= dom_id(investment) %>" class="budget-investment clear">
+  <div class="panel">
+    <div class="row">
+
+      <div class="small-12 medium-9 column br-grey">
+        <div class="budget-investment-content">
+
+          <% cache [locale_and_user_status(investment), 'index', investment, investment.author] do %>
+            <span class="label-budget-investment float-left"><%= t("budgets.investments.investment.title") %></span>
+            <span class="ml5 float-left"><%= image_tag('lamparita.png', class: 'text-bottom ml20', size: '18x18') %></span>
+            <h3><%= link_to investment.title, namespaced_budget_investment_path(investment) %></h3>
+            <p class="investment-project-info">
+
+              <i class="fa fa-commenting-o fc-grey" aria-hidden="true"></i>
+              <span class="fc-grey"><%= link_to t("proposals.proposal.comments", count: investment.comments_count), namespaced_budget_investment_path(investment, anchor: "comments"), class: "fc-grey" %></span>
+              <span class="bullet">&nbsp;•&nbsp;</span>
+
+              <%= l investment.created_at.to_date %>
+
+              <% if investment.author.hidden? || investment.author.erased? %>
+                <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                <span class="author">
+                  <%= t("budgets.investments.show.author_deleted") %>
+                </span>
+              <% else %>
+                <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                <span class="author">
+                  <%= investment.author.name %>
+                </span>
+                <% if investment.author.official? %>
+                  <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                  <span class="label round level-<%= investment.author.official_level %>">
+                    <%= investment.author.official_position %>
+                  </span>
+                <% end %>
+              <% end %>
+
+              <span class="bullet">&nbsp;&bull;&nbsp;</span>
+              <%= investment.heading.name %>
+            </p>
+            <div class="investment-project-description">
+              <p><%= investment.description %></p>
+              <div class="truncate"></div>
+            </div>
+            <%= render "shared/tags", taggable: investment, limit: 5 %>
+          <% end %>
+        </div>
+      </div>
+
+      <% unless investment.unfeasible? %>
+
+        <% if investment.should_show_votes? %>
+          <div id="<%= dom_id(investment) %>_votes"
+               class="small-12 medium-3 column text-center">
+               <%= render partial: '/budgets/investments/votes', locals: {
+                 investment: investment,
+                 investment_votes: investment_votes,
+                 vote_url: namespaced_budget_investment_vote_path(investment, value: 'yes')
+               } %>
+          </div>
+        <% elsif investment.should_show_vote_count? %>
+          <div id="<%= dom_id(investment) %>_votes"
+               class="small-12 medium-3 column text-center">
+            <div class="supports js-participation">
+              <span class="total-supports no-button">
+                <%= t("budgets.investments.investment.supports",
+                    count: investment.total_votes) %>
+              </span>
+            </div>
+            <div class="share-supported">
+              <%= social_share_button_tag("#{investment.title} #{setting['twitter_hashtag']}", url: budget_investment_url(budget_id: investment.budget_id, id: investment.id), via: setting['twitter_handle']) %>
+            </div>
+          </div>
+        <% elsif investment.should_show_ballots? %>
+          <div id="<%= dom_id(investment) %>_ballot"
+                class="small-12 medium-3 column text-center">
+                <%= render partial: '/budgets/investments/ballot', locals: {
+                  investment: investment,
+                  investment_ids: investment_ids,
+                  ballot: ballot
+                } %>
+            <div class="share-supported">
+              <%= social_share_button_tag("#{investment.title} #{setting['twitter_hashtag']}", url: budget_investment_url(budget_id: investment.budget_id, id: investment.id), via: setting['twitter_handle']) %>
+            </div>
+          </div>
+        <% elsif @last_budget.accepting? %>
+          <div id="<%= dom_id(investment) %>_accepting_phase"
+               class="small-12 medium-3 column text-center">
+            <div class="callout warning mt10"><%= @last_budget.description_reviewing.html_safe if @last_budget.accepting? %></div>
+            <div class="share-supported">
+              <%= social_share_button_tag("#{investment.title} #{setting['twitter_hashtag']}", url: budget_investment_url(budget_id: investment.budget_id, id: investment.id), via: setting['twitter_handle']) %>
+            </div>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

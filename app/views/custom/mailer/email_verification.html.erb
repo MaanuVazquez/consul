@@ -1,0 +1,24 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+  <h1 style="color:rgba(0,0,0,.7); font-family:Arial; font-weight:bold; font-size:28px;">
+    <%= t("mailers.email_verification.title") %>
+  </h1>
+
+  <p>
+  <%= t("mailers.email_verification.instructions_html",
+        verification_link: link_to(
+          t('mailers.email_verification.click_here_to_verify'),
+          email_url(email_verification_token: @token),
+          style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;",
+          target: "_blank"
+        )) %>
+  </p>
+
+  <p>
+  <%= t("mailers.email_verification.instructions_2_html",
+        document_type: humanize_document_type(@document_type),
+        document_number: @document_number) %>
+  </p>
+  <p>
+    <%= t("mailers.email_verification.thanks") %>
+  </p>
+</td>

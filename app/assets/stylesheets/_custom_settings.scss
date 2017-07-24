@@ -3,3 +3,20 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+$body-font-family: 'Open Sans', sans-serif !important;
+$base-font-size:   14px;
+$small-font-size:  12px;
+$tiny-font-size:   10px;
+
+$brand:             #ffbc00;
+$dark:              #333333;
+$grey:              #AAA;
+$black:             #000;
+$highlight:         #e2f4f3; //#eefffe;
+$budget:            #00a59d;
+$budget-hover:      #10b5ad;
+
+$code-color: #c7254e;
+$code-background: #f9f2f4;
+$code-border: none;

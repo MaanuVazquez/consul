@@ -1,0 +1,164 @@
+<%= form_for(@investment, url: form_url, method: :post) do |f| %>
+  <%= render 'shared/errors', resource: @investment %>
+
+  <div class="row">
+    <div class="small-12 column">
+      <%= f.label :title, t("proposals.form.proposal_title") %>
+      <%= f.text_field :title, maxlength: SpendingProposal.title_max_length, placeholder: t("proposals.form.proposal_title"), label: false %>
+    </div>
+
+    <%= f.invisible_captcha :subtitle %>
+
+    <div class="small-12 column">
+      <%= f.label :summary, t("proposals.form.proposal_summary") %>
+      <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
+      <%= f.text_area :summary, rows: 4, maxlength: 200, label: false,
+                      placeholder: t('proposals.form.proposal_summary') %>
+    </div>
+
+    <div class="ckeditor small-12 column mt20">
+      <%= f.label :description, t("proposals.form.proposal_text") %>
+      <%= f.cktext_area :description, maxlength: SpendingProposal.description_max_length, ckeditor: { language: I18n.locale }, label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :video_url, t("proposals.form.proposal_video_url") %>
+      <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
+      <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.label :external_url, t("proposals.form.proposal_external_url") %>
+      <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
+    </div>
+
+    <div class="small-12 medium-8 column mb20">
+      <%= f.label :heading_id,  t("proposals.form.geozone") %>
+      <%= f.select :heading_id, budget_heading_select_options(@budget), {include_blank: t("geozones.select_one"), label: false } %>
+      <span><a data-open="exampleModal1">¿Cuál es mi comuna?</a></span>
+    </div>
+
+    <div class="reveal small" id="exampleModal1" data-reveal>
+      <h1>¿Cuál es mi comuna?</h1>
+      <table>
+        <thead>
+          <tr>
+            <th class="text-center">Comuna</th>
+            <th>Barrios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">Comuna 1</td>
+            <td>Retiro, San Nicolás, Puerto Madero, San Telmo, Monserrat y Constitución</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 2</td>
+            <td>Recoleta</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 3</td>
+            <td>San Cristóbal y Balvanera</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 4</td>
+            <td>Boca, Barracas, Parque Patricios y Nueva Pompeya</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 5</td>
+            <td>Almagro y Boedo</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 6</td>
+            <td>Caballito</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 7</td>
+            <td>Flores y Parque Chacabuco</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 8</td>
+            <td>Villa Soldati, Villa Riachuelo y Villa Lugano</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 9</td>
+            <td>Parque Avellaneda, Liniers y Mataderos</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 10</td>
+            <td>Villa Real, Monte Castro, Versalles, Floresta, Vélez Sársfield y Villa Luro</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 11</td>
+            <td>Villa Gral. Mitre, Villa Devoto, Villa del Parque y Villa Santa Rita</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 12</td>
+            <td>Coghlan, Saavedra, Villa Urquiza y Villa Pueyrredón</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 13</td>
+            <td>Belgrano, Núñez y Colegiales</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 14</td>
+            <td>Palermo</td>
+          </tr>
+          <tr>
+            <td class="text-center">Comuna 15</td>
+            <td>Chacarita, Villa Crespo, Paternal, Villa Ortúzar, Agronomía y Parque Chas</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.text_field :location %>
+    </div>
+
+    <div class="small-12 column">
+      <%= f.text_field :organization_name %>
+    </div>
+
+    <div class="small-12 column mb20">
+      <div id="category_tags" class="tags">
+        <%= f.label :tag_list,  t("budgets.investments.form.tag_category_label") %>
+      </div>
+      <%= f.select :tag_list, budget_categories(@categories), {include_blank: t("geozones.select_one"), label: false } %>
+      <br>
+    </div>
+
+    <% if management_user == true %>
+
+      <div class="small-12 column">
+        <%= f.label :terms_of_service do %>
+            <%= f.check_box :terms_of_service, title: "Acepto continuar el proceso de participación en BA Elige.", label: false %>
+            <span class="checkbox">
+              <%= "Acepto continuar el proceso de participación en BA Elige." %>
+            </span>
+        <% end %>
+      </div>
+
+    <% else %>
+
+        <div class="small-12 column">
+          <%= f.label :terms_of_service do %>
+              <%= f.check_box :terms_of_service, title: t('form.accept_terms_title'), label: false %>
+              <span class="checkbox">
+            <%= t("form.accept_terms",
+                  policy: link_to(t("form.policy"), "/privacy", target: "blank"),
+                  conditions: link_to(t("form.conditions"), "/conditions", target: "blank")).html_safe %>
+          </span>
+        <% end %>
+      </div>
+
+    <% end %>
+
+    <div class="actions small-12 medium-6 large-4 end column">
+      <%= f.submit(nil, class: "button expanded", value: t("budgets.investments.form.create_budget")) %>
+    </div>
+  </div>
+<% end %>

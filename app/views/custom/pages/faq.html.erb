@@ -1,0 +1,91 @@
+<div class="row margin-top">
+  <div class="menu small-12 medium-3 column">
+    <%= render "shared/back_link" %>
+
+    <ul class="menu vertical margin-top">
+      <li><a href="#1"><span style="font-weight: 600;">No funciona la verificación de residencia.</span></a></li>
+      <li><a href="#2"><span style="font-weight: 600;">No tengo domicilio en la Ciudad de Buenos Aires, ¿por qué no puedo votar?</span></a></li>
+      <li><a href="#3"><span style="font-weight: 600;">¿Para qué sirve verificar mi cuenta?</span></a></li>
+      <li><a href="#4"><span style="font-weight: 600;">¿Necesito teléfono celular o acceso a internet para participar?</span></a></li>
+      <li><a href="#5"><span style="font-weight: 600;">¿Cómo creo y verifico mi cuenta?</span></a></li>
+      <li><a href="#6"><span style="font-weight: 600;">¿Cómo puedo enviar una propuesta a la Ciudad de Buenos Aires? ¿Puedo enviar directamente
+        mi propuesta a alguno de los correos electrónicos que aparecen en la página de BA Elige?</span></a></li>
+      <li><a href="#7"><span style="font-weight: 600;">Me olvidé mi contraseña o no funciona, ¿qué puedo hacer?</span></a></li>
+      <li><a href="#8"><span style="font-weight: 600;">¿Cómo puedo cambiar mi correo electrónico, mi nombre de usuario, mi contraseña, darme
+        de baja o activar/desactivar las notificaciones que me llegan al correo electrónico?</span></a></li>
+    </ul>
+  </div>
+
+  <div class="text small-12 medium-9 column">
+    <h1 class="clear">Soluciones a problemas técnicos (FAQ)</h1>
+    <p>
+      Te presentamos una lista de las soluciones a los problemas y dudas técnicas
+      más frecuentes de BA Elige. Si esto no resuelve tu problema, podés escribirnos a
+      <a href="mailto:baelige@buenosaires.gob.ar">baelige@buenosaires.gob.ar</a>.
+    </p>
+
+    <h3 id="1">No funciona la verificación de residencia.</h3>
+    <p>
+      Comprobá las siguientes posibilidades:
+    <ul>
+      <li>¿Pusiste el número de DNI o documento con todos los caracteres juntos?</li>
+      <li>¿Estás seguro que el domicilio que figura en tu DNI corresponde a la Ciudad de Buenos Aires?</li>
+      <li>Si el error persiste, escribínos a <a href="mailto:baelige@buenosaires.gob.ar">baelige@buenosaires.gob.ar</a>
+        para que podamos ayudarte</li>
+    </ul>
+    </p>
+
+    <h3 id="2">No tengo domicilio en la Ciudad de Buenos Aires, ¿por qué no puedo votar?</h3>
+    <p>
+      La votación de proyectos está limitada a personas que residan en la Ciudad, ya que afectará directamente a quienes viven en ella. Por eso, nos parece que son ellos los que tienen que tomar la decisión final. Sabemos que hay personas que no cuentan con domicilio en la Ciudad de Buenos Aires y que aun así estas decisiones puedan afectarlas, de todos modos, van a poder participar aunque no tengan domicilio en la Ciudad ya que la sección de propuestas y apoyos está abierta a todo el mundo.
+    </p>
+
+    <h3 id="3">¿Para qué sirve verificar mi cuenta?</h3>
+    <p>Para usar BA Elige necesitás crear un usuario que, dependiendo de si hiciste la verificación de tu cuenta, te
+      permitirá hacer distintas acciones dentro del sitio.</p>
+    <p>Si te registrás en la web con tu correo electrónico y no das ningún otro dato (no hacés el proceso de verificación),
+      vas a poder crear propuestas, comentar y apoyar las propuestas de los demás, pero no vas a poder votar.</p>
+
+    <h3 id="4">¿Necesito teléfono celular o acceso a Internet para poder participar?</h3>
+    <p>
+      No. Todas las acciones relacionadas con el proceso también podés realizarlas personalmente en cualquiera de los puntos <%= link_to setting['org_name'], root_path %> o llamando al 147. Allí podrás generar tus propuestas, dar apoyo y votar las propuestas que hayan sido creadas por los demás participantes.
+    </p>
+
+    <h3 id="5">¿Cómo creo y verifico mi cuenta?</h3>
+    <p>Para crear una cuenta tenés que hacer clic en el enlace <%= link_to(t("devise_views.menu.login_items.signup"), new_user_registration_path) %>
+      y completar los datos. Es un requisito marcar la casilla de aceptación de las Condiciones de Uso. Al crear una
+      cuenta, te va a llegar un correo electrónico a la dirección que hayas especificado,para terminar de crearla solo
+      tenés que hacer clic en el enlace de "Confirmar mi cuenta".</p>
+    <p>
+      Una vez creada la cuenta básica, y tras
+      <%= link_to(t("devise_views.menu.login_items.login"), new_user_session_path) %>
+      con tu correo y contraseña, podés hacer la verificación (solamente es necesario este paso para la etapa de votación). Mediante la web, hacé clic en el enlace "Mi cuenta" de la parte superior derecha, y luego en el botón "Verificar mi cuenta”, donde deberás completar los datos requeridos y marcar la casilla de aceptación.
+    </p>
+
+    <h3 id="6">
+      ¿Cómo puedo enviar una propuesta a la Ciudad de Buenos Aires? ¿Puedo enviar directamente mi propuesta a alguno de los correos electrónicos que aparecen en la página de BA Elige?
+    </h3>
+    <p>
+      El camino correcto para hacer una propuesta es agregarla uno mismo directamente en la página dentro de la sección
+      "<%= layout_menu_link_to t("layouts.header.proposals"),
+                               budget_investments_path(@last_budget),
+                               controller_name == 'investments',
+                               accesskey: "p" %>"
+      (para eso es necesario primero crear una cuenta haciendo clic en el enlace
+      <%= link_to(t("devise_views.menu.login_items.signup"), new_user_registration_path) %>
+      y, una vez creada, hacer clic en el botón "Crear propuesta" de la sección "Propuestas"). Otra manera de crear una propuesta es hacerlo en forma presencial acercándote a cualquiera de los
+      <%= link_to("Puntos BA Elige", page_path('how_it_works')) %>
+      o participando en las reuniones vecinales. Así como también en nuestras redes y en el mail de BA elige o llamando al 147.
+    </p>
+
+    <h3 id="7">Me olvidé mi contraseña o no funciona, ¿qué puedo hacer?</h3>
+    <p>Podés seleccionar “<%= link_to(t("devise_views.menu.login_items.login"), new_user_session_path) %>” y
+      <u>solicitar nueva contraseña</u> para que se te envíe a tu correo electrónico.</p>
+
+    <h3 id="8">¿Cómo puedo cambiar mi correo electrónico, mi nombre de usuario, mi contraseña, darme de baja o
+      activar/desactivar las notificaciones que me llegan al correo electrónico?</h3>
+    <p>Podés cambiar tu correo electrónico, nombre de usuario, contraseña, darte de baja o activar/desactivar
+      notificaciones ingresando a Mi cuenta > Cambiar datos de acceso. Una vez que guardes los cambios, verás los
+      modificados actualizados.</p>
+  </div>
+</div>

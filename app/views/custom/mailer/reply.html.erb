@@ -1,0 +1,24 @@
+<td valign="middle" style="align:justify; color:#636261; font-family:Arial; font-size:13px; padding:3px 30px;">
+
+  <h1 style="color:rgba(0,0,0,.7); font-family:Arial; font-weight:bold; font-size:28px;">
+    <%= t("mailers.reply.title") %>
+  </h1>
+
+  <p>
+    <%= t("mailers.reply.hi") %> <strong><%= @recipient.name %></strong>,
+  </p>
+
+  <p>
+    <%= t("mailers.reply.new_reply_by_html", commenter: @reply.author.name) %> <%= link_to @commentable.title,
+                                                                                           comment_url(@reply.id),
+                                                                                           style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;" %>
+  </p>
+
+  <p style="color:#999999;">
+    <blockquote style="margin:0px;padding:10px;border-left: 1px solid #999999;color:#999999;"><%= text_with_links @reply.body %></blockquote>
+  </p>
+
+  <p>
+    <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "font-family: Arial, sans-serif; text-align: left; color: #EB186A; font-size: 13px; text-decoration: underline;" %>
+  </p>
+</td>

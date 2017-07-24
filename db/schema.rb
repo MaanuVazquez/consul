@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713110317) do
+ActiveRecord::Schema.define(version: 20170721204559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,10 +109,14 @@ ActiveRecord::Schema.define(version: 20170713110317) do
 
   create_table "budget_headings", force: :cascade do |t|
     t.integer "group_id"
-    t.string  "name",       limit: 50
-    t.integer "price",      limit: 8
+    t.string  "name",                limit: 50
+    t.integer "price",               limit: 8
     t.integer "population"
     t.string  "slug"
+    t.text    "padron"
+    t.text    "ingreso_promedio"
+    t.text    "pct_ingreso_inverso"
+    t.text    "pct_habitante"
   end
 
   add_index "budget_headings", ["group_id"], name: "index_budget_headings_on_group_id", using: :btree
@@ -123,6 +127,15 @@ ActiveRecord::Schema.define(version: 20170713110317) do
     t.text     "description"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "budget_investment_notifications", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "author_id"
+    t.integer  "budget_investment_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "budget_investments", force: :cascade do |t|
@@ -160,6 +173,11 @@ ActiveRecord::Schema.define(version: 20170713110317) do
     t.integer  "previous_heading_id"
     t.boolean  "winner",                                default: false
     t.boolean  "incompatible",                          default: false
+    t.string   "video_url"
+    t.integer  "flags_count",                           default: 0
+    t.datetime "ignored_flag_at"
+    t.datetime "confirmed_hide_at"
+    t.text     "summary"
   end
 
   add_index "budget_investments", ["administrator_id"], name: "index_budget_investments_on_administrator_id", using: :btree
@@ -760,6 +778,16 @@ ActiveRecord::Schema.define(version: 20170713110317) do
   add_index "proposals", ["title"], name: "index_proposals_on_title", using: :btree
   add_index "proposals", ["tsv"], name: "index_proposals_on_tsv", using: :gin
 
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
   create_table "settings", force: :cascade do |t|
     t.string "key"
     t.string "value"
@@ -881,30 +909,30 @@ ActiveRecord::Schema.define(version: 20170713110317) do
   add_index "tags", ["spending_proposals_count"], name: "index_tags_on_spending_proposals_count", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                     default: ""
-    t.string   "encrypted_password",                        default: "",                    null: false
+    t.string   "email",                                              default: ""
+    t.string   "encrypted_password",                                 default: "",                    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                             default: 0,                     null: false
+    t.integer  "sign_in_count",                                      default: 0,                     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                                null: false
-    t.datetime "updated_at",                                                                null: false
+    t.datetime "created_at",                                                                         null: false
+    t.datetime "updated_at",                                                                         null: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.boolean  "email_on_comment",                          default: false
-    t.boolean  "email_on_comment_reply",                    default: false
-    t.string   "phone_number",                   limit: 30
+    t.boolean  "email_on_comment",                                   default: false
+    t.boolean  "email_on_comment_reply",                             default: false
+    t.string   "phone_number",                            limit: 30
     t.string   "official_position"
-    t.integer  "official_level",                            default: 0
+    t.integer  "official_level",                                     default: 0
     t.datetime "hidden_at"
     t.string   "sms_confirmation_code"
-    t.string   "username",                       limit: 60
+    t.string   "username",                                limit: 60
     t.string   "document_number"
     t.string   "document_type"
     t.datetime "residence_verified_at"
@@ -915,29 +943,30 @@ ActiveRecord::Schema.define(version: 20170713110317) do
     t.datetime "letter_requested_at"
     t.datetime "confirmed_hide_at"
     t.string   "letter_verification_code"
-    t.integer  "failed_census_calls_count",                 default: 0
+    t.integer  "failed_census_calls_count",                          default: 0
     t.datetime "level_two_verified_at"
     t.string   "erase_reason"
     t.datetime "erased_at"
-    t.boolean  "public_activity",                           default: true
-    t.boolean  "newsletter",                                default: true
-    t.integer  "notifications_count",                       default: 0
-    t.boolean  "registering_with_oauth",                    default: false
+    t.boolean  "public_activity",                                    default: true
+    t.boolean  "newsletter",                                         default: true
+    t.integer  "notifications_count",                                default: 0
+    t.boolean  "registering_with_oauth",                             default: false
     t.string   "locale"
     t.string   "oauth_email"
     t.integer  "geozone_id"
     t.string   "redeemable_code"
-    t.string   "gender",                         limit: 10
+    t.string   "gender",                                  limit: 10
     t.datetime "date_of_birth"
-    t.boolean  "email_on_proposal_notification",            default: true
-    t.boolean  "email_digest",                              default: true
-    t.boolean  "email_on_direct_message",                   default: true
-    t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2017-06-22 11:21:30', null: false
-    t.boolean  "created_from_signature",                    default: false
-    t.integer  "failed_email_digests_count",                default: 0
-    t.text     "former_users_data_log",                     default: ""
-    t.boolean  "public_interests",                          default: false
+    t.boolean  "email_on_proposal_notification",                     default: true
+    t.boolean  "email_digest",                                       default: true
+    t.boolean  "email_on_direct_message",                            default: true
+    t.boolean  "official_position_badge",                            default: false
+    t.datetime "password_changed_at",                                default: '2017-06-22 11:21:30', null: false
+    t.boolean  "created_from_signature",                             default: false
+    t.integer  "failed_email_digests_count",                         default: 0
+    t.text     "former_users_data_log",                              default: ""
+    t.boolean  "public_interests",                                   default: false
+    t.boolean  "email_on_budget_investment_notification",            default: true
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

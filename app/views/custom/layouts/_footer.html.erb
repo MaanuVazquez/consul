@@ -1,0 +1,94 @@
+<footer>
+	<div class="row">
+
+    <div class="footer-sections small-12 large-12 column">
+
+      <div class="small-12 medium-3 column mt20">
+        <h2>
+          <%= link_to t("layouts.footer.baelige_title"), root_path %>
+        </h2>
+        <p>
+          <%= t("layouts.footer.description",
+          open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank"),
+          consul:  link_to(t("layouts.footer.consul"), t("layouts.footer.consul_url"), target: "blank")).html_safe%>
+          <%= t("layouts.footer.contact_us") %>
+          <%= link_to t("layouts.footer.here"), page_path('faq') %>
+        </p>
+      </div>
+
+      <div class="small-12 medium-3 column mt20">
+        <h2>
+          <%= t("layouts.footer.participation_title") %>
+        </h2>
+        <p><%= t("layouts.footer.participation_text", participation_title: link_to(t("layouts.footer.participation_title"), t("layouts.footer.participation_url"), target: "blank")).html_safe %></p>
+      </div>
+
+      <div class="small-12 medium-3 column mt20">
+        <h2>
+          <%= t("layouts.footer.transparency_title") %>
+        </h2>
+        <p class="contact-info">
+          <span class="fa-icon fa-phone"></span>
+          <span><%= t("layouts.footer.contact_number")%></span>
+          <br>
+          <span class="fa-icon fa-envelope"></span>
+          <span><%= t("layouts.footer.contact_mail")%></span>
+          <br>
+          <%#= link_to ('¡Dejanos tu comentario!'), 'https://comunicacionhrl.secure.force.com/forms/FF_VFP_BAelige', class: "link", target: "blank" %>
+        </p>
+      </div>
+
+      <div class="small-12 medium-3 column mt20">
+        <h2>
+          <%= t("layouts.footer.open_data_title") %>
+        </h2>
+          <ul class="redes-sociales">
+            <% if setting['twitter_handle'] %>
+                <li class="inline-block">
+                  <%= link_to "https://twitter.com/#{setting['twitter_handle']}", target: "_blank", title: t("social.twitter") + t('shared.target_blank_html') do %>
+                      <span class="sr-only"><%= t("social.twitter") %></span>
+                      <%= image_tag('twitter-button.png', size: '20x20', alt: t("social.twitter")) %>
+                  <% end %>
+                </li>
+            <% end %>
+            <% if setting['facebook_handle'] %>
+                <li class="inline-block">
+                  <%= link_to "https://www.facebook.com/#{setting['facebook_handle']}/", target: "_blank", title: t("social.facebook") + t('shared.target_blank_html') do %>
+                      <span class="sr-only"><%= t("social.facebook") %></span>
+                      <%= image_tag('facebook-button.png', size: '20x20', alt: t("social.facebook")) %>
+                  <% end %>
+                </li>
+            <% end %>
+            <%  if setting['blog_url'] %>
+                <li class="inline-block">
+                  <%= link_to setting['blog_url'], target: "_blank", title: t("social.blog") + t('shared.target_blank_html') do %>
+                      <span class="sr-only"><%= t("social.blog") %></span>
+                      <%= image_tag('wordpress-button.png', size: '20x20', alt: t("social.blog")) %>
+                  <% end %>
+                </li>
+            <% end %>
+            <% if setting['youtube_handle'] %>
+                <li class="inline-block">
+                  <%= link_to "https://www.youtube.com/#{setting['youtube_handle']}", target: "_blank", title: t("social.youtube") + t('shared.target_blank_html') do %>
+                      <span class="sr-only"><%= t("social.youtube") %></span>
+                      <%= image_tag('youtube-button.png', size: '20x20', alt: t("social.youtube")) %>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subfooter row">
+    <div class="small-12 column">
+      <%= t("layouts.footer.copyright", year: Time.current.year) %>&nbsp;-
+      <ul class="no-bullet inline-block">
+        <li class="inline-block"><%= link_to t("layouts.footer.more_info"), page_path('more_information') %>&nbsp;|</li>
+        <li class="inline-block"><%= link_to t("layouts.footer.privacy"), page_path('privacy') %>&nbsp;|</li>
+        <li class="inline-block"><%= link_to t("layouts.footer.conditions"), page_path('conditions') %>&nbsp;|</li>
+        <li class="inline-block"><%= link_to t("layouts.footer.accessibility"), page_path('accessibility') %></li>
+      </ul>
+    </div>
+  </div>
+</footer>

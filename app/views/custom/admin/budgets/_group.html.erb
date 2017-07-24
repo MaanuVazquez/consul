@@ -1,0 +1,113 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="6" class="with-button">
+        <%= group.name %>
+        <%= link_to t("admin.budgets.form.add_heading"), "#", class: "button float-right js-toggle-link", data: { "toggle-selector" => "#group-#{group.id}-new-heading-form" } %>
+      </th>
+    </tr>
+
+  <% if headings.blank? %>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="6">
+        <div class="callout primary">
+          <%= t("admin.budgets.form.no_heading") %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+
+    <!-- new heading form -->
+    <tr id="group-<%= group.id %>-new-heading-form" style="display:none">
+      <td colspan="6">
+        <%= form_for [:admin, @budget, group, Budget::Heading.new], remote: true do |f| %>
+          <label><%= t("admin.budgets.form.heading") %></label>
+          <%= f.text_field :name,
+                            label: false,
+                            maxlength: 50,
+                            placeholder: t("admin.budgets.form.heading") %>
+
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <label><%= t("admin.budgets.form.amount") %></label>
+              <%= f.text_field :price,
+                                label: false,
+                                maxlength: 8,
+                                placeholder: t("admin.budgets.form.amount") %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <label><%= t("admin.budgets.form.padron") %></label>
+              <%= f.text_field :padron,
+                                label: false,
+                                maxlength: 8,
+                                placeholder: t("admin.budgets.form.padron") %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <label><%= t("admin.budgets.form.ingreso_promedio") %></label>
+              <%= f.text_field :ingreso_promedio,
+                                label: false,
+                                maxlength: 8,
+                                placeholder: t("admin.budgets.form.ingreso_promedio") %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <label><%= t("admin.budgets.form.pct_ingreso_inverso") %></label>
+              <%= f.text_field :pct_ingreso_inverso,
+                                label: false,
+                                maxlength: 8,
+                                placeholder: t("admin.budgets.form.pct_ingreso_inverso") %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <label><%= t("admin.budgets.form.pct_habitante") %></label>
+              <%= f.text_field :pct_habitante,
+                                label: false,
+                                maxlength: 8,
+                                placeholder: t("admin.budgets.form.pct_habitante") %>
+            </div>
+          </div>
+
+          <%= f.submit t("admin.budgets.form.save_heading"), class: "button success" %>
+        <% end %>
+      </td>
+    </tr>
+    <!-- /. new heading form -->
+  <% if !headings.blank? %>
+      <tr>
+        <th>Nombre</th>
+        <th>Presupuesto</th>
+        <th>Padrón</th>
+        <th>Ingreso promedio</th>
+        <th>PCT ingreso inverso</th>
+        <th>PCT habitante</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- headings list -->
+      <% headings.each do |heading| %>
+        <tr>
+          <td><%= heading.name %></td>
+          <td><%= heading.price %></td>
+          <td><%= heading.padron %></td>
+          <td><%= heading.ingreso_promedio %></td>
+          <td><%= heading.pct_ingreso_inverso %></td>
+          <td><%= heading.pct_habitante %></td>
+        </tr>
+      <% end %>
+      <!-- /. headings list -->
+    </tbody>
+  <% end %>
+</table>

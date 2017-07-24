@@ -1,0 +1,56 @@
+<div class="admin-sidebar">
+  <ul id="admin_menu">
+    <li <%= "class=active" if controller_name == "document_verifications" ||
+                              controller_name == "email_verifications" %>>
+      <%= link_to management_document_verifications_path do %>
+        <span class="icon-user"></span>
+        <%= t("management.document_verifications.title") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if controller_name == "account" %>>
+      <%= link_to management_account_path do %>
+        <span class="icon-user"></span>
+        <%= t("management.menu.edit_user_accounts") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if (controller_name == "budget_investments" && action_name == "new") ||
+                              (controller_name == "budget" && action_name == 'create_investments') %>>
+      <%= link_to create_investments_management_budgets_path do %>
+        <span class="icon-proposals"></span>
+        <%= t("management.menu.create_budget_investment") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if (controller_name == "budget_investments" && action_name == "index") ||
+                              (controller_name == "budget" && action_name == "support_investments")%>>
+      <%= link_to support_investments_management_budgets_path do %>
+        <span class="icon-like"></span>
+        <%= t("management.menu.support_budget_investments") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if (controller_name == "budget_investments" && action_name == "print") ||
+                              (controller_name == "budgets" && action_name == "print_investments") %>>
+      <%= link_to print_investments_management_budgets_path do %>
+        <span class="icon-print"></span>
+        <%= t("management.menu.print_budget_investments") %>
+      <% end %>
+    </li>
+
+    <li <%= "class=active" if (controller_name == "users" && action_name == "new") %>>
+          <%= link_to new_management_user_path do %>
+            <span class="icon-user"></span>
+          <%= t("management.users.create_user_submit") %>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to new_management_user_invite_path do %>
+        <span class="icon-letter"></span>
+        <%= t("management.menu.user_invites") %>
+      <% end %>
+    </li>
+  </ul>
+</div>

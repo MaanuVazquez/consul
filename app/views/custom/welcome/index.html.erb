@@ -1,0 +1,81 @@
+<!-- START BA ELige countdown -->
+<%= render 'custom/welcome/countdown' %>
+<!-- END BA ELige countdown -->
+<div class="expanded backgradient padding no-margin-top">
+  <div class="row">
+    <div class="small-12 medium-8 column pt20">
+      <h2><%= t("layouts.header.open_city_title") %></h2>
+      <p>
+        <%= t("layouts.header.open_city_slogan_html") %>&nbsp;
+      </p>
+      <div class="small-12 medium-5 index-btn">
+        <% if @last_budget.accepting? %>
+          <%= link_to t("layouts.header.proposal_btn"), new_budget_investment_path(budget_id: @last_budget.id), class: "button see-more expanded mb" %>
+        <% elsif @last_budget.selecting?%>
+          <%= link_to t("layouts.header.selecting_btn"), budget_investments_path(@last_budget), class: "button see-more expanded" %>
+        <% elsif @last_budget.balloting?%>
+          <%= link_to t("layouts.header.balloting_btn"), budget_group_path(@last_budget, @first_group), class: "button see-more expanded" %>
+        <% elsif @last_budget.valuating?%>
+          <%= link_to t("layouts.header.valuating_btn"), budget_investments_path(@last_budget), class: "button see-more expanded" %>
+        <% end %>
+        <img src="https://bcp.crwdcntrl.net/5/c=8468/b=39460411" width="1" height="1"/>
+      </div>
+    </div>
+
+    <div class="hide-for-small-only small-12 medium-4 column text-center">
+      <%= image_tag("icon_home_gif.gif", size: "330x240", alt:"") %>
+    </div>
+  </div>
+</div>
+
+<% cache [locale_and_user_status, @featured_debates, @featured_proposals, 'featured'] do %>
+  <main>
+    <div class="row text-center margin mt50 mb70 index-items">
+      <div class="small-12 medium-3 column mt30">
+        <% if @last_budget.accepting? %>
+          <%= link_to new_budget_investment_path(budget_id: @last_budget.id) do %>
+              <%= image_tag("icon_home_proposal.png", size: "168x168", alt: "", title: t("welcome.proposal.title"))  %>
+          <% end %>
+        <% else %>
+          <%= image_tag("icon_home_proposal_inactive.png", size: "168x168", alt: "", title: t("welcome.proposal.title"))  %>
+        <% end %>
+        <h2 class="mt20"><%= t("welcome.proposal.title") %></h2>
+        <p><%= t("welcome.proposal.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column mt30">
+        <!--fase de apoyo-->
+        <% if @last_budget.selecting? %>
+            <%= link_to budget_investments_path(@last_budget) do %>
+                <%= image_tag("icon_home_do.png", size: "168x168", alt: "", title: t("welcome.do.title")) %>
+            <% end %>
+        <% else %>
+            <%= image_tag("icon_home_selection_inactive.png", size: "168x168", alt: "", title: t("welcome.do.title")) %>
+        <% end %>
+        <h2 class="mt20"><%= t("welcome.do.title") %></h2>
+        <p><%= t("welcome.do.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column mt30">
+        <% if @last_budget.valuating? %>
+            <%= link_to budget_investments_path(@last_budget) do %>
+                <%= image_tag("icon_home_debate.png", size: "168x168", alt: "", title: t("welcome.debates.title")) %>
+            <% end %>
+        <% else %>
+            <%= image_tag("icon_home_debate.png", size: "168x168", alt: "", title: t("welcome.debates.title")) %>
+        <% end %>
+        <h2 class="mt20"><%= t("welcome.debates.title") %></h2>
+        <p><%= t("welcome.debates.description") %></p>
+      </div>
+      <div class="small-12 medium-3 column mt30">
+        <% if @last_budget.balloting? %>
+            <%= link_to budget_group_path(@last_budget, @first_group) do %>
+                <%= image_tag("icon_home_decide.png", size: "168x168", alt: "", title: t("welcome.decide.title")) %>
+            <% end %>
+        <% else %>
+            <%= image_tag("icon_home_decide.png", size: "168x168", alt: "", title: t("welcome.decide.title")) %>
+        <% end %>
+        <h2 class="mt20"><%= t("welcome.decide.title") %></h2>
+        <p><%= t("welcome.decide.description") %></p>
+      </div>
+    </div>
+  </main>
+<% end %>

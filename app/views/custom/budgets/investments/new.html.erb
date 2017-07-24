@@ -1,0 +1,41 @@
+<div class="budget-investment-new row">
+  <div class="small-12 medium-9 column">
+
+    <div class="small-12 margin-bottom">
+      <%= link_to new_budget_investment_path(budget_id: @last_budget.id) do %>
+          <div class="backgradient position-relative mb50">
+            <div class="small-9 column v-center float-left">
+              <h2><%= t("layouts.header.banner.accepting.title") %></h2>
+              <p style="color: #333;"><%= @last_budget.description_accepting.html_safe %></p>
+            </div>
+            <div class="small-3 column v-center right">
+              <%= image_tag('header-1.png') %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+    <h1><%= t("proposals.new.start_new") %></h1>
+    <div data-alert class="callout primary">
+      <%= link_to "/ba_elige",title: t('shared.target_blank_html'), target: "_blank", class:"mt10 mb10" do %>
+          <%= t("proposals.new.more_info")%>
+      <% end %>
+    </div>
+
+    <%= render '/budgets/investments/form', form_url: budget_investments_path(@budget), management_user: false %>
+  </div>
+
+  <div class="small-12 medium-3 column">
+    <%= image_tag("lamparita.png", alt: t("shared.tags_cloud.districts_list"), class: "text-right mb10 img-responsive", size: "43x43") %>
+    <h3 class="aside-title-30"><%= t("proposals.new.recommendations_title") %></h3>
+    <ul class="recommendations">
+      <li><%= t("proposals.form.recommendations.recommendation1") %></li>
+      <li><%= t("proposals.form.recommendations.recommendation2") %></li>
+      <li><%= t("proposals.form.recommendations.recommendation3") %></li>
+      <li><%= t("proposals.form.recommendations.recommendation4") %></li>
+    </ul>
+    <div class="flex-video">
+      <div id="js-embedded-video" data-video-code="<%= embedded_investment_video_code("https://www.youtube.com/watch?v=bIJPm6VLmxE&list=PLxTPShsWMHPdyc0sN7nx2DcHH0BC_iQkc") %>"></div>
+    </div>
+  </div>
+</div>
