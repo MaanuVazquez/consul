@@ -1,0 +1,60 @@
+---
+es:
+  pages:
+      census_terms: Para verificar la cuenta hay que tener 16 años o más y estar empadronado aportando los datos indicados anteriormente, los cuales serán contrastados. Aceptando el proceso de verificación acepta dar su consentimiento para contrastar dicha información, así como medios de contacto que figuren en dichos ficheros. Los datos aportados serán incorporados y tratados en un fichero indicado anteriormente en las condiciones de uso del portal.
+      conditions: Condiciones de uso
+      general_terms: Términos y Condiciones
+      more_information:
+        description:
+          faq: Preguntas frecuentes sobre problemas técnicos
+          how_it_works: Encontrá tu punto más cercano.
+          how_to_use: Libremente, es un software libre.
+          participation: Participación Ciudadana, Transparencia y Gobierno Abierto
+          participation_facts: Conocé qué es una inversión y qué no lo es.
+          participation_world: Informate de los sistemas de participación ciudadana que existen en el mundo.
+          proposals_info: Descubrí todo lo que podés hacer en la web.
+          signature_sheet: Hojas de firmas para recoger apoyos
+          spending_proposals_info: Enterate de las posibles propuestas.
+        how_it_works:
+          i: Participación
+          i1: Espacio de debate
+          title: Espacio de propuestas
+          text: |-
+            En este espacio, cualquier persona puede proponer una iniciativa con la intención de recaudar los suficientes apoyos como para que la idea pase a ser consultada a toda la ciudadanía con carácter vinculante.
+
+            En una segunda etapa, las propuestas son apoyadas por ciudadanos, con lo cual será la propia ciudadanía -y nadie en su nombre- la que decida cuáles son las propuestas que merecen la pena ser llevadas a cabo.
+
+            Una vez finalizada la etapa de apoyos, aquellas propuestas más populares de cada comuna serán estudiadas por un grupo de trabajo de la Ciudad y pasarán a la siguiente fase de votación en la que los vecinos decidirán cuál se llevará a cabo.
+        how_to_use:
+          text: |-
+            BA Elige usa la aplicación Consul que es software libre, con licencia AGPLv3, esto significa en palabras sencillas, que cualquiera puede libremente usar el código, copiarlo, verlo en detalle, modificarlo y redistribuir al mundo con las modificaciones que quiera(manteniendo el que otros puedan a su vez hacer lo mismo).
+
+            No solo podés usar libremente este portal, sino que desde el Ayuntamiento de Madrid van a ayudarte en todo lo posible para que lo hagas, así que si estás interesado, podés escribirles a extensión.institucional@madrid.es. Si sos programador, podés ver el código y ayudar a mejorar la aplicación Consul.
+        titles:
+          faq: Soluciones a problemas técnicos (FAQ)
+          how_it_works: "Puntos BA Elige"
+          how_to_use: Usalo en tu Ciudad o municipio
+          participation: Participación y Transparencia - Próximas novedades
+          participation_facts: "¿Qué es una inversión?"
+          participation_world: Participación Ciudadana directa en el mundo
+          proposals_info: "¿Cómo funciona la plataforma de BA Elige?"
+          signature_sheet: Hojas de firmas
+          spending_proposals_info: "¿Qué propuestas puedo hacer?"
+      opendata:
+        slogan: "Información sobre Datos abiertos."
+        title: Datos abiertos
+      privacy: Política de Privacidad
+      titles:
+        accessibility: Accesibilidad
+        conditions: Condiciones de uso
+        more_information: Más información
+        opendata: Datos abiertos
+        privacy: Política de Privacidad
+      verify:
+        code: Código que has recibido en tu carta
+        email: Email
+        info: 'Para verificar tu cuenta introduce los datos con los que te registraste:'
+        info_code: 'Ahora introduce el código que has recibido en tu carta:'
+        password: Contraseña
+        submit: Verificar mi cuenta
+        title: Verifica tu cuenta

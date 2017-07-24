@@ -1,0 +1,6 @@
+---
+es:
+  admin:
+    moderation:
+      index:
+        search_placeholder: Título

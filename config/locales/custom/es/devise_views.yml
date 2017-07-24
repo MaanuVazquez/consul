@@ -1,0 +1,36 @@
+---
+es:
+  devise_views:
+      mailer:
+        confirmation_instructions:
+          confirm_link: "confirmá tu cuenta."
+          text: "Para comenzar a participar,"
+          title: ¡Bienvenido/a a BA Elige!
+          welcome: "¡Hola"
+        reset_password_instructions:
+          change_link: "nueva contraseña."
+          hello: "¡Hola"
+          ignore_text: "Si no solicitaste este cambio, ignorá este mail."
+          info_text: "Tu contraseña no cambiará hasta que no accedas al enlace y la modifiques."
+          text: "Recibimos tu solicitud de cambio de contraseña. Para hacerlo, debes ingresar una"
+          title: Cambia tu contraseña
+        unlock_instructions:
+          hello: Hola
+          info_text: Tu cuenta ha sido bloqueada debido a un excesivo número de intentos fallidos de alta.
+          instructions_text: "Para desbloquear tu cuenta accedé al enlace: "
+          title: Tu cuenta ha sido bloqueada
+          unlock_link: desbloquear mi cuenta
+      shared:
+        links:
+          new_confirmation: "¿No recibiste instrucciones para confirmar tu cuenta?"
+          new_unlock: "¿No recibiste instrucciones para desbloquear?"
+          signup: "¿No tenés una cuenta? %{signup_link}"
+      users:
+        registrations:
+          delete_form:
+            info_reason: Si querés, escribí el motivo por el que te das de baja (opcional).
+          success:
+            instructions_1_html: Por favor <b>revisá tu correo electrónico</b>, te enviamos un <b>enlace para confirmar tu cuenta</b>.
+            instructions_2_html: Una vez confirmado, podrás empezar a participar.
+            thank_you_html: Gracias por registrarte en la web.
+            title: Revisá tu correo

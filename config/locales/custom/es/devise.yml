@@ -1,0 +1,20 @@
+---
+es:
+  devise:
+      failure:
+        unauthenticated: "Necesitás iniciar sesión o registrarte para continuar."
+      sessions:
+        signed_in: "Iniciaste sesión correctamente."
+        signed_out: "Cerraste la sesión correctamente."
+        already_signed_out: "Cerraste la sesión correctamente."
+      confirmations:
+        confirmed: "Tu cuenta ha sido confirmada."
+      registrations:
+        destroyed: "Tu cuenta se ha dado de baja exitosamente"
+      mailer:
+        confirmation_instructions:
+          subject: "Bienvenido/a a BA Elige."
+        reset_password_instructions:
+          subject: "Pedido de cambio de contraseña."
+        unlock_instructions:
+          subject: "Instrucciones de desbloqueo."
