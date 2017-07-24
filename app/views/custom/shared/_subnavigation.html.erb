@@ -21,7 +21,7 @@
                                 accesskey: "p" %>
     </li>
     <li>
-      <%#= layout_menu_link_to t("layouts.header.proposal_ballot"),
+      <%= layout_menu_link_to t("layouts.header.proposal_ballot"),
                                 proposal_ballots_path,
                                 controller_name == 'proposal_ballots',
                                 accesskey: "v",
@@ -34,7 +34,7 @@
                               accesskey: "i" %>
     </li>
     <li class="fs-12">
-      <%= layout_menu_link_to t("layouts.header.more_information"),
+      <%= layout_menu_link_to t("layouts.header.more_info"),
                               page_path('more_information'),
                               controller_name == 'pages#more_information',
                               accesskey: "i" %>
